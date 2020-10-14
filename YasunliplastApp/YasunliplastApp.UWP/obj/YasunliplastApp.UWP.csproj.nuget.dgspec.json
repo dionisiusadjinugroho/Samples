@@ -1,0 +1,318 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Github Dion\\Samples\\Samples\\YasunliplastApp\\YasunliplastApp.UWP\\YasunliplastApp.UWP.csproj": {}
+  },
+  "projects": {
+    "D:\\Github Dion\\Samples\\Samples\\YasunliplastApp\\YasunliplastApp.UWP\\YasunliplastApp.UWP.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Github Dion\\Samples\\Samples\\YasunliplastApp\\YasunliplastApp.UWP\\YasunliplastApp.UWP.csproj",
+        "projectName": "YasunliplastApp.UWP",
+        "projectPath": "D:\\Github Dion\\Samples\\Samples\\YasunliplastApp\\YasunliplastApp.UWP\\YasunliplastApp.UWP.csproj",
+        "packagesPath": "C:\\Users\\dioni\\.nuget\\packages\\",
+        "outputPath": "D:\\Github Dion\\Samples\\Samples\\YasunliplastApp\\YasunliplastApp.UWP\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\dioni\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 18.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "uap10.0.16299"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\DevExpress 18.2\\Components\\System\\Components\\Packages": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://www.nuget.org/api/v2/": {}
+        },
+        "frameworks": {
+          "uap10.0.16299": {
+            "projectReferences": {
+              "D:\\Github Dion\\Samples\\Samples\\YasunliplastApp\\YasunliplastApp\\YasunliplastApp.csproj": {
+                "projectPath": "D:\\Github Dion\\Samples\\Samples\\YasunliplastApp\\YasunliplastApp\\YasunliplastApp.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "uap10.0.16299": {
+          "dependencies": {
+            "MQTTnet": {
+              "target": "Package",
+              "version": "[3.0.12, )"
+            },
+            "Microsoft.NETCore.UniversalWindowsPlatform": {
+              "target": "Package",
+              "version": "[6.1.9, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            },
+            "Refractored.MvvmHelpers": {
+              "target": "Package",
+              "version": "[1.3.0, )"
+            },
+            "Rg.Plugins.Popup": {
+              "target": "Package",
+              "version": "[1.2.0.223, )"
+            },
+            "Syncfusion.Xamarin.SfBackdrop": {
+              "target": "Package",
+              "version": "[17.2.0.46, )"
+            },
+            "Syncfusion.Xamarin.SfBarcode": {
+              "target": "Package",
+              "version": "[17.2.0.46, )"
+            },
+            "Syncfusion.Xamarin.SfBusyIndicator": {
+              "target": "Package",
+              "version": "[17.2.0.46, )"
+            },
+            "Syncfusion.Xamarin.SfCarousel": {
+              "target": "Package",
+              "version": "[17.2.0.46, )"
+            },
+            "Syncfusion.Xamarin.SfComboBox": {
+              "target": "Package",
+              "version": "[17.2.0.46, )"
+            },
+            "Syncfusion.Xamarin.SfDataGrid": {
+              "target": "Package",
+              "version": "[17.2.0.46, )"
+            },
+            "Syncfusion.Xamarin.SfListView": {
+              "target": "Package",
+              "version": "[17.2.0.46, )"
+            },
+            "Syncfusion.Xamarin.SfPicker": {
+              "target": "Package",
+              "version": "[17.2.0.46, )"
+            },
+            "Syncfusion.Xamarin.SfPopupLayout": {
+              "target": "Package",
+              "version": "[17.2.0.46, )"
+            },
+            "Syncfusion.Xamarin.SfPullToRefresh": {
+              "target": "Package",
+              "version": "[17.2.0.46, )"
+            },
+            "Xamarin.Essentials": {
+              "target": "Package",
+              "version": "[1.3.1, )"
+            },
+            "Xamarin.FFImageLoading": {
+              "target": "Package",
+              "version": "[2.4.11.982, )"
+            },
+            "Xamarin.FFImageLoading.Forms": {
+              "target": "Package",
+              "version": "[2.4.11.982, )"
+            },
+            "Xamarin.Forms": {
+              "target": "Package",
+              "version": "[4.4.0.991640, )"
+            },
+            "Xamarin.Forms.PancakeView": {
+              "target": "Package",
+              "version": "[1.3.7, )"
+            },
+            "ZXing.Net.Mobile": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            },
+            "ZXing.Net.Mobile.Forms": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      },
+      "runtimes": {
+        "win10-arm": {
+          "#import": []
+        },
+        "win10-arm-aot": {
+          "#import": []
+        },
+        "win10-arm64-aot": {
+          "#import": []
+        },
+        "win10-x64": {
+          "#import": []
+        },
+        "win10-x64-aot": {
+          "#import": []
+        },
+        "win10-x86": {
+          "#import": []
+        },
+        "win10-x86-aot": {
+          "#import": []
+        }
+      }
+    },
+    "D:\\Github Dion\\Samples\\Samples\\YasunliplastApp\\YasunliplastApp\\YasunliplastApp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Github Dion\\Samples\\Samples\\YasunliplastApp\\YasunliplastApp\\YasunliplastApp.csproj",
+        "projectName": "YasunliplastApp",
+        "projectPath": "D:\\Github Dion\\Samples\\Samples\\YasunliplastApp\\YasunliplastApp\\YasunliplastApp.csproj",
+        "packagesPath": "C:\\Users\\dioni\\.nuget\\packages\\",
+        "outputPath": "D:\\Github Dion\\Samples\\Samples\\YasunliplastApp\\YasunliplastApp\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\dioni\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 18.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\DevExpress 18.2\\Components\\System\\Components\\Packages": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://www.nuget.org/api/v2/": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "LiveXAML": {
+              "target": "Package",
+              "version": "[2.1.73, )"
+            },
+            "MQTTnet": {
+              "target": "Package",
+              "version": "[3.0.12, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            },
+            "Refractored.MvvmHelpers": {
+              "target": "Package",
+              "version": "[1.3.0, )"
+            },
+            "Rg.Plugins.Popup": {
+              "target": "Package",
+              "version": "[1.2.0.223, )"
+            },
+            "Syncfusion.Xamarin.SfBackdrop": {
+              "target": "Package",
+              "version": "[17.2.0.46, )"
+            },
+            "Syncfusion.Xamarin.SfBarcode": {
+              "target": "Package",
+              "version": "[17.2.0.46, )"
+            },
+            "Syncfusion.Xamarin.SfBusyIndicator": {
+              "target": "Package",
+              "version": "[17.2.0.46, )"
+            },
+            "Syncfusion.Xamarin.SfCarousel": {
+              "target": "Package",
+              "version": "[17.2.0.46, )"
+            },
+            "Syncfusion.Xamarin.SfComboBox": {
+              "target": "Package",
+              "version": "[17.2.0.46, )"
+            },
+            "Syncfusion.Xamarin.SfDataGrid": {
+              "target": "Package",
+              "version": "[17.2.0.46, )"
+            },
+            "Syncfusion.Xamarin.SfListView": {
+              "target": "Package",
+              "version": "[17.2.0.46, )"
+            },
+            "Syncfusion.Xamarin.SfPicker": {
+              "target": "Package",
+              "version": "[17.2.0.46, )"
+            },
+            "Syncfusion.Xamarin.SfPopupLayout": {
+              "target": "Package",
+              "version": "[17.2.0.46, )"
+            },
+            "Syncfusion.Xamarin.SfPullToRefresh": {
+              "target": "Package",
+              "version": "[17.2.0.46, )"
+            },
+            "Xamarin.Essentials": {
+              "target": "Package",
+              "version": "[1.3.1, )"
+            },
+            "Xamarin.FFImageLoading": {
+              "target": "Package",
+              "version": "[2.4.11.982, )"
+            },
+            "Xamarin.FFImageLoading.Forms": {
+              "target": "Package",
+              "version": "[2.4.11.982, )"
+            },
+            "Xamarin.Forms": {
+              "target": "Package",
+              "version": "[4.4.0.991640, )"
+            },
+            "Xamarin.Forms.PancakeView": {
+              "target": "Package",
+              "version": "[1.3.7, )"
+            },
+            "ZXing.Net.Mobile": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            },
+            "ZXing.Net.Mobile.Forms": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<XamlProjectMeta xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Files>
+    <XamlFileMeta>
+      <FilePath>D:\Github Dion\Samples\Samples\YasunliplastApp\YasunliplastApp\App.xaml</FilePath>
+      <Hash>86-85-E5-79-E7-5A-A3-00-BF-40-6B-99-23-5D-62-22</Hash>
+      <Properties />
+    </XamlFileMeta>
+    <XamlFileMeta>
+      <FilePath>D:\Github Dion\Samples\Samples\YasunliplastApp\YasunliplastApp\Views\AbsensiOpView.xaml</FilePath>
+      <Hash>D8-8B-B8-4E-D0-FC-A3-4C-F3-A0-69-FB-65-19-23-A0</Hash>
+      <Properties>
+        <string>BackgroundColor</string>
+      </Properties>
+    </XamlFileMeta>
+    <XamlFileMeta>
+      <FilePath>D:\Github Dion\Samples\Samples\YasunliplastApp\YasunliplastApp\Views\Base\CustomNavigationPage.xaml</FilePath>
+      <Hash>4B-DB-64-95-31-7B-0A-F4-7A-FF-C2-71-AB-FB-DE-42</Hash>
+      <Properties>
+        <string>BarBackgroundColor</string>
+        <string>BarTextColor</string>
+      </Properties>
+    </XamlFileMeta>
+    <XamlFileMeta>
+      <FilePath>D:\Github Dion\Samples\Samples\YasunliplastApp\YasunliplastApp\Views\ChangePasswordView.xaml</FilePath>
+      <Hash>4F-9C-AA-8A-25-D0-FD-0D-8C-1A-C7-61-40-9D-BE-EB</Hash>
+      <Properties />
+    </XamlFileMeta>
+    <XamlFileMeta>
+      <FilePath>D:\Github Dion\Samples\Samples\YasunliplastApp\YasunliplastApp\Views\DEMOScannerZebraRFIDView.xaml</FilePath>
+      <Hash>DA-63-B5-27-2F-3A-41-EA-52-BC-03-8A-AD-54-B9-6E</Hash>
+      <Properties />
+    </XamlFileMeta>
+    <XamlFileMeta>
+      <FilePath>D:\Github Dion\Samples\Samples\YasunliplastApp\YasunliplastApp\Views\DEMOScannerZebraRFID_CheckerItemDeliveryView.xaml</FilePath>
+      <Hash>F7-31-8E-91-2A-1F-EE-45-BA-7A-60-C6-60-83-E3-4E</Hash>
+      <Properties />
+    </XamlFileMeta>
+    <XamlFileMeta>
+      <FilePath>D:\Github Dion\Samples\Samples\YasunliplastApp\YasunliplastApp\Views\DEMOScannerZebraRFID_DeliveryEPSONView.xaml</FilePath>
+      <Hash>82-3A-30-3C-31-BD-6B-E9-CD-7D-59-0B-C3-B2-79-BE</Hash>
+      <Properties />
+    </XamlFileMeta>
+    <XamlFileMeta>
+      <FilePath>D:\Github Dion\Samples\Samples\YasunliplastApp\YasunliplastApp\Views\DEMOScannerZebraView.xaml</FilePath>
+      <Hash>0F-B3-1B-7A-12-40-A6-87-D1-B2-6C-C7-F3-6D-04-55</Hash>
+      <Properties />
+    </XamlFileMeta>
+    <XamlFileMeta>
+      <FilePath>D:\Github Dion\Samples\Samples\YasunliplastApp\YasunliplastApp\Views\HelloView.xaml</FilePath>
+      <Hash>8E-7C-AA-29-71-2D-20-6F-75-FF-F7-02-E2-12-13-83</Hash>
+      <Properties />
+    </XamlFileMeta>
+    <XamlFileMeta>
+      <FilePath>D:\Github Dion\Samples\Samples\YasunliplastApp\YasunliplastApp\Views\HistoryBox.xaml</FilePath>
+      <Hash>05-66-B7-96-56-04-CF-D8-85-1B-46-B3-49-28-8F-40</Hash>
+      <Properties />
+    </XamlFileMeta>
+    <XamlFileMeta>
+      <FilePath>D:\Github Dion\Samples\Samples\YasunliplastApp\YasunliplastApp\Views\HomeView.xaml</FilePath>
+      <Hash>57-47-1C-C7-DE-24-94-36-C2-EC-70-F7-15-A2-B5-C2</Hash>
+      <Properties>
+        <string>BackgroundColor</string>
+      </Properties>
+    </XamlFileMeta>
+    <XamlFileMeta>
+      <FilePath>D:\Github Dion\Samples\Samples\YasunliplastApp\YasunliplastApp\Views\LoginView.xaml</FilePath>
+      <Hash>9B-46-8B-45-7B-37-47-B9-80-95-B7-41-2A-E7-CA-5A</Hash>
+      <Properties>
+        <string>BackgroundColor</string>
+        <string>Padding</string>
+      </Properties>
+    </XamlFileMeta>
+    <XamlFileMeta>
+      <FilePath>D:\Github Dion\Samples\Samples\YasunliplastApp\YasunliplastApp\Views\MainPage.xaml</FilePath>
+      <Hash>95-91-7C-06-8D-3E-B7-C4-70-25-EF-34-9C-16-4B-F2</Hash>
+      <Properties />
+    </XamlFileMeta>
+    <XamlFileMeta>
+      <FilePath>D:\Github Dion\Samples\Samples\YasunliplastApp\YasunliplastApp\Views\MonitoringStockView.xaml</FilePath>
+      <Hash>71-3E-CB-89-68-9E-A1-00-AE-C7-FD-3E-BB-92-4E-84</Hash>
+      <Properties>
+        <string>BackgroundColor</string>
+        <string>BackLayerRevealOption</string>
+        <string>BackLayerStateChanged</string>
+        <string>IsBackLayerRevealed</string>
+      </Properties>
+    </XamlFileMeta>
+    <XamlFileMeta>
+      <FilePath>D:\Github Dion\Samples\Samples\YasunliplastApp\YasunliplastApp\Views\QCSamplingDetailView.xaml</FilePath>
+      <Hash>62-99-15-D9-DD-A2-53-CF-2D-E9-5A-AD-3C-30-52-D5</Hash>
+      <Properties>
+        <string>BackgroundColor</string>
+      </Properties>
+    </XamlFileMeta>
+    <XamlFileMeta>
+      <FilePath>D:\Github Dion\Samples\Samples\YasunliplastApp\YasunliplastApp\Views\QCSamplingView.xaml</FilePath>
+      <Hash>33-42-A6-B2-B0-97-3F-B4-1E-DC-F1-95-49-0F-F5-0A</Hash>
+      <Properties>
+        <string>BackgroundColor</string>
+      </Properties>
+    </XamlFileMeta>
+    <XamlFileMeta>
+      <FilePath>D:\Github Dion\Samples\Samples\YasunliplastApp\YasunliplastApp\Views\ReportAbsensiView.xaml</FilePath>
+      <Hash>2A-6D-43-F3-1E-80-38-98-36-A2-5F-CC-E1-46-71-75</Hash>
+      <Properties />
+    </XamlFileMeta>
+    <XamlFileMeta>
+      <FilePath>D:\Github Dion\Samples\Samples\YasunliplastApp\YasunliplastApp\Views\ReportSamplingView.xaml</FilePath>
+      <Hash>FE-2A-42-53-A1-E2-4A-D9-CA-2A-A0-46-73-DC-00-1C</Hash>
+      <Properties />
+    </XamlFileMeta>
+    <XamlFileMeta>
+      <FilePath>D:\Github Dion\Samples\Samples\YasunliplastApp\YasunliplastApp\Views\ReworkLocationView.xaml</FilePath>
+      <Hash>35-73-F5-DD-EC-E5-2F-87-DD-7A-56-EE-12-47-A3-D9</Hash>
+      <Properties />
+    </XamlFileMeta>
+    <XamlFileMeta>
+      <FilePath>D:\Github Dion\Samples\Samples\YasunliplastApp\YasunliplastApp\Views\RFIDPairingView.xaml</FilePath>
+      <Hash>61-60-CC-48-A5-82-8D-11-0F-F2-64-C2-77-16-CF-CB</Hash>
+      <Properties>
+        <string>BackgroundColor</string>
+      </Properties>
+    </XamlFileMeta>
+    <XamlFileMeta>
+      <FilePath>D:\Github Dion\Samples\Samples\YasunliplastApp\YasunliplastApp\Views\SchedulingView.xaml</FilePath>
+      <Hash>0F-7D-DC-72-F6-5B-C2-D3-63-49-08-A0-3E-42-7D-95</Hash>
+      <Properties>
+        <string>BackgroundColor</string>
+      </Properties>
+    </XamlFileMeta>
+    <XamlFileMeta>
+      <FilePath>D:\Github Dion\Samples\Samples\YasunliplastApp\YasunliplastApp\Views\SelectPlantView.xaml</FilePath>
+      <Hash>22-9C-31-4C-27-84-E1-4D-D6-23-42-C9-B9-37-51-C7</Hash>
+      <Properties>
+        <string>BackgroundColor</string>
+      </Properties>
+    </XamlFileMeta>
+    <XamlFileMeta>
+      <FilePath>D:\Github Dion\Samples\Samples\YasunliplastApp\YasunliplastApp\Views\SPPAktivitasView.xaml</FilePath>
+      <Hash>40-B5-08-09-88-08-F2-BB-B5-5F-29-71-9D-40-45-85</Hash>
+      <Properties>
+        <string>BackgroundColor</string>
+      </Properties>
+    </XamlFileMeta>
+    <XamlFileMeta>
+      <FilePath>D:\Github Dion\Samples\Samples\YasunliplastApp\YasunliplastApp\Views\STOGudangReadyView.xaml</FilePath>
+      <Hash>B2-98-36-EE-52-96-56-7D-C3-D3-A1-4B-20-07-B9-6C</Hash>
+      <Properties>
+        <string>BackgroundColor</string>
+      </Properties>
+    </XamlFileMeta>
+    <XamlFileMeta>
+      <FilePath>D:\Github Dion\Samples\Samples\YasunliplastApp\YasunliplastApp\Views\SuratKonfirmasi.xaml</FilePath>
+      <Hash>53-AF-09-31-EF-0A-97-A6-84-88-58-FD-D4-CD-37-06</Hash>
+      <Properties>
+        <string>BackgroundColor</string>
+      </Properties>
+    </XamlFileMeta>
+    <XamlFileMeta>
+      <FilePath>D:\Github Dion\Samples\Samples\YasunliplastApp\YasunliplastApp\Views\TRIALCounterInjectionView.xaml</FilePath>
+      <Hash>7C-AF-5C-DD-E0-AD-B5-F1-00-E5-F5-6F-01-60-4E-D3</Hash>
+      <Properties />
+    </XamlFileMeta>
+    <XamlFileMeta>
+      <FilePath>D:\Github Dion\Samples\Samples\YasunliplastApp\YasunliplastApp\Views\TRIALCounterReworkINView.xaml</FilePath>
+      <Hash>12-73-B8-E3-52-23-F7-F7-2A-36-8C-CD-F1-D9-04-94</Hash>
+      <Properties />
+    </XamlFileMeta>
+  </Files>
+</XamlProjectMeta>
