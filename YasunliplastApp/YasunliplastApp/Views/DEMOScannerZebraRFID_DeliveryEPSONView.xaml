@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<screens:BaseContentPage x:Class="YasunliplastApp.Views.DEMOScannerZebraRFID_DeliveryEPSONView"
+                         xmlns="http://xamarin.com/schemas/2014/forms"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                         xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                         xmlns:syncfusionListView="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+                         xmlns:syncfusionbarcode="clr-namespace:Syncfusion.SfBarcode.XForms;assembly=Syncfusion.SfBarcode.XForms"
+                         xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+                         xmlns:screens="clr-namespace:YasunliplastApp.Views.Base"
+                         mc:Ignorable="d">
+
+    <screens:BaseContentPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:Key="HeaderSize"
+                        Android="11"
+                        iOS="10"
+                        x:TypeArguments="x:Double" />
+            <Style x:Key="HeaderTextStyle"
+                   BasedOn="{StaticResource PoppinsRegularLabelStyle}"
+                   TargetType="Label">
+                <Setter Property="FontSize"
+                        Value="{StaticResource LittleSize}" />
+                <Setter Property="TextColor"
+                        Value="{StaticResource LightGrayColor}" />
+                <Setter Property="VerticalOptions"
+                        Value="Start" />
+                <Setter Property="MaxLines"
+                        Value="1" />
+                <Setter Property="Margin">
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Value="3,5,0,0"
+                            Platform="Android" />
+                        <On Value="0,5,0,5"
+                            Platform="iOS" />
+                    </OnPlatform>
+                </Setter>
+            </Style>
+            <Style x:Key="EntryFieldStyle"
+                   BasedOn="{StaticResource BaseEntryStyle}"
+                   TargetType="{x:Type Entry}">
+                <Setter Property="FontSize"
+                        Value="{StaticResource MediumSize}" />
+            </Style>
+            <Style x:Key="ScanValueTextStyle"
+                   BasedOn="{StaticResource PoppinsSemiBoldLabelStyle}"
+                   TargetType="Label">
+                <Setter Property="TextColor"
+                        Value="{StaticResource BlackTextColor}" />
+                <Setter Property="FontSize"
+                        Value="{StaticResource MediumSize}" />
+                <Setter Property="VerticalOptions"
+                        Value="Center" />
+                <Setter Property="MaxLines"
+                        Value="5" />
+                <Setter Property="Margin">
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Value="3,5,0,0"
+                            Platform="Android" />
+                        <On Value="0,5,0,5"
+                            Platform="iOS" />
+                    </OnPlatform>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </screens:BaseContentPage.Resources>
+
+    <screens:BaseContentPage.Content>
+        <AbsoluteLayout>
+            <ScrollView AbsoluteLayout.LayoutBounds="0,0,1,1"
+                        AbsoluteLayout.LayoutFlags="All">
+                <Grid RowSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackLayout Grid.Row="0"
+                                 Grid.Column="0"
+                                 Margin="10,10,10,10"
+                                 Orientation="Vertical"
+                                 VerticalOptions="FillAndExpand">
+                        <combobox:SfComboBox x:Name="Combobox_Mobil"
+                                             AllowFiltering="true"
+                                             ClearButtonColor="Red"
+                                             DropDownItemHeight="50"
+                                             HighlightedTextColor="Red"
+                                             HighlightedTextFontAttributes="Bold"
+                                             HorizontalOptions="FillAndExpand"
+                                             VerticalOptions="StartAndExpand"
+                                             IsEditableMode="True"
+                                             IsSelectedItemsVisibleInDropDown="False"
+                                             IsVisible="True"
+                                             MultiSelectMode="None"
+                                             SuggestionMode="Contains"
+                                             TextColor="Black"
+                                             TextHighlightMode="MultipleOccurrence"
+                                             ValueChanged="Combobox_Mobil_ValueChanged"
+                                             Watermark="-- Enter Location --"
+                                             WatermarkColor="DimGray" />
+                        <Label x:Name="labeltotal"
+                               FontSize="25"
+                               FontFamily="poppins"
+                               Text="Total = 0" />
+                        <Label x:Name="labelItemName"
+                               FontSize="15"
+                               FontFamily="poppins"
+                               Text="Item Name : " />
+                        <Label x:Name="labelItemID"
+                               FontSize="15"
+                               FontFamily="poppins"
+                               Text="Item ID : " />
+                        <Label x:Name="labelQty"
+                               FontSize="15"
+                               FontFamily="poppins"
+                               Text="Qty : " />
+                        <Label x:Name="labelBox"
+                               FontSize="15"
+                               FontFamily="poppins"
+                               Text="Box Type : " />
+                        <Label x:Name="labelRFID"
+                               FontSize="15"
+                               FontFamily="poppins"
+                               Text="Qty : " />
+                        <Label x:Name="remark"
+                               FontSize="20"
+                               FontFamily="poppins"
+                               Text="Remarks : " />
+                        <Button x:Name="buttonadd"
+                                Clicked="buttonadd_Clicked"
+                                Text="ADD DUMMY"
+                                IsVisible="False" />
+
+                        <syncfusionListView:SfListView x:Name="sfListView"
+                                                       ItemsSource="{Binding listDataBarcode}"
+                                                       ItemSize="70"
+                                                       ItemSpacing="2"
+                                                       SelectionMode="Single"
+                                                       HorizontalOptions="Start"
+                                                       VerticalOptions="Start"
+                                                       SelectionChanged="sfListView_SelectionChanged"
+                                                       Orientation="Horizontal"
+                                                       HeightRequest="75">
+                            <syncfusionListView:SfListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame CornerRadius="15"
+                                           Padding="3"
+                                           Margin="1"
+                                           HasShadow="True"
+                                           BackgroundColor="{Binding Color}">
+                                        <Grid Padding="3"
+                                              Margin="3,3,3,3"
+                                              VerticalOptions="FillAndExpand"
+                                              HorizontalOptions="FillAndExpand"
+                                              RowSpacing="3">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="50" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="50" />
+                                                <!--<ColumnDefinition Width="*" />-->
+                                            </Grid.ColumnDefinitions>
+
+                                            <Image Source="ItemSampling.png"
+                                                   Grid.Row="0"
+                                                   Grid.Column="0"
+                                                   VerticalOptions="FillAndExpand"
+                                                   HorizontalOptions="FillAndExpand" />
+
+                                            <!--<Label Text="{Binding BarcodeID}"
+                                                   Grid.Column="1"
+                                                   Grid.Row="0"
+                                                   Style="{StaticResource ScanValueTextStyle}"
+                                                   FontSize="Default" />
+                                            <Label Text="{Binding ItemID}"
+                                                   Grid.Column="1"
+                                                   Grid.Row="1"
+                                                   Style="{StaticResource ScanValueTextStyle}"
+                                                   FontSize="Default" />
+                                            <Label Text="{Binding ItemName}"
+                                                   Grid.Column="1"
+                                                   Grid.Row="2"
+                                                   Style="{StaticResource ScanValueTextStyle}"
+                                                   FontSize="Default" />-->
+                                        </Grid>
+                                    </Frame>
+                                </DataTemplate>
+                            </syncfusionListView:SfListView.ItemTemplate>
+                        </syncfusionListView:SfListView>
+                        <syncfusionbarcode:SfBarcode x:Name="barcode"
+                                                     BackgroundColor="White"
+                                                     Text="http://www.wikipedia.org"
+                                                     Symbology="DataMatrix">
+
+                            <syncfusionbarcode:SfBarcode.SymbologySettings>
+                                <syncfusionbarcode:QRBarcodeSettings x:Name="settings"
+                                                                     XDimension="7" />
+                            </syncfusionbarcode:SfBarcode.SymbologySettings>
+                        </syncfusionbarcode:SfBarcode>
+                        <syncfusionListView:SfListView x:Name="sfListViewQR"
+                                                       ItemsSource="{Binding listDataBarcode}"
+                                                       ItemSize="70"
+                                                       ItemSpacing="2"
+                                                       SelectionMode="Single"
+                                                       HorizontalOptions="Start"
+                                                       VerticalOptions="Start"
+                                                       SelectionChanged="sfListViewQR_SelectionChanged"
+                                                       Orientation="Horizontal"
+                                                       HeightRequest="75">
+                            <syncfusionListView:SfListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame CornerRadius="15"
+                                           Padding="3"
+                                           Margin="1"
+                                           HasShadow="True">
+                                        <Grid Padding="3"
+                                              Margin="3,3,3,3"
+                                              VerticalOptions="FillAndExpand"
+                                              HorizontalOptions="FillAndExpand"
+                                              RowSpacing="3">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="50" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="50" />
+                                                <!--<ColumnDefinition Width="*" />-->
+                                            </Grid.ColumnDefinitions>
+
+                                            <Image Source="QRCodeBlue1.png"
+                                                   Grid.Row="0"
+                                                   Grid.Column="0"
+                                                   VerticalOptions="FillAndExpand"
+                                                   HorizontalOptions="FillAndExpand" />
+
+                                            <!--<Label Text="{Binding BarcodeID}"
+                                                   Grid.Column="1"
+                                                   Grid.Row="0"
+                                                   Style="{StaticResource ScanValueTextStyle}"
+                                                   FontSize="Default" />
+                                            <Label Text="{Binding ItemID}"
+                                                   Grid.Column="1"
+                                                   Grid.Row="1"
+                                                   Style="{StaticResource ScanValueTextStyle}"
+                                                   FontSize="Default" />
+                                            <Label Text="{Binding ItemName}"
+                                                   Grid.Column="1"
+                                                   Grid.Row="2"
+                                                   Style="{StaticResource ScanValueTextStyle}"
+                                                   FontSize="Default" />-->
+                                        </Grid>
+                                    </Frame>
+                                </DataTemplate>
+                            </syncfusionListView:SfListView.ItemTemplate>
+                        </syncfusionListView:SfListView>
+
+                    </StackLayout>
+                </Grid>
+            </ScrollView>
+
+            <ContentView AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         AbsoluteLayout.LayoutFlags="All"
+                         BackgroundColor="{StaticResource LoaderBackColor}"
+                         IsVisible="{Binding IsBusy}"
+                         Opacity="0.2" />
+            <ActivityIndicator AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+                               AbsoluteLayout.LayoutFlags="PositionProportional"
+                               IsRunning="{Binding IsBusy}"
+                               IsVisible="{Binding IsBusy}" />
+        </AbsoluteLayout>
+    </screens:BaseContentPage.Content>
+</screens:BaseContentPage>

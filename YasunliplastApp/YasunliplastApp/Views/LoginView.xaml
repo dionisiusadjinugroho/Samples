@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<screens:BaseContentPage
+    x:Class="YasunliplastApp.Views.LoginView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:popuplayout="clr-namespace:Syncfusion.XForms.PopupLayout;assembly=Syncfusion.SfPopupLayout.XForms"
+    xmlns:renderers="clr-namespace:YasunliplastApp.Renderers"
+    xmlns:screens="clr-namespace:YasunliplastApp.Views.Base"
+    xmlns:SyncfusionPicker="clr-namespace:Syncfusion.SfPicker.XForms;assembly=Syncfusion.SfPicker.XForms"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    mc:Ignorable="d"
+    BackgroundColor="WHITE"
+    Padding="0,40,0,0">
+
+    <screens:BaseContentPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform
+                x:Key="HeaderSize"
+                Android="11"
+                iOS="10"
+                x:TypeArguments="x:Double" />
+            <Style
+                x:Key="HeaderTextStyle"
+                BasedOn="{StaticResource PoppinsRegularLabelStyle}"
+                TargetType="Label">
+                <Setter Property="FontSize" Value="{StaticResource LittleSize}" />
+                <Setter Property="TextColor" Value="{StaticResource LightGrayColor}" />
+                <Setter Property="VerticalOptions" Value="Start" />
+                <Setter Property="MaxLines" Value="1" />
+                <Setter Property="Margin">
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Value="3,5,0,0" Platform="Android" />
+                        <On Value="0,5,0,5" Platform="iOS" />
+                    </OnPlatform>
+                </Setter>
+            </Style>
+            <Style
+                x:Key="EntryFieldStyle"
+                BasedOn="{StaticResource BaseEntryStyle}"
+                TargetType="{x:Type Entry}">
+                <Setter Property="FontSize" Value="{StaticResource MediumSize}" />
+            </Style>
+            <Style
+                x:Key="ScanValueTextStyle"
+                BasedOn="{StaticResource PoppinsSemiBoldLabelStyle}"
+                TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource BlackTextColor}" />
+                <Setter Property="FontSize" Value="{StaticResource MediumSize}" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="MaxLines" Value="5" />
+                <Setter Property="Margin">
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Value="3,5,0,0" Platform="Android" />
+                        <On Value="0,5,0,5" Platform="iOS" />
+                    </OnPlatform>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </screens:BaseContentPage.Resources>
+
+    <screens:BaseContentPage.Content>
+        <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout>
+                <SyncfusionPicker:SfPicker
+                    x:Name="picker"
+                    HeaderBackgroundColor="Red"
+                    HeaderFontAttribute="Bold"
+                    HeaderFontFamily="poppins"
+                    HeaderFontSize="20"
+                    HeaderText="Select Plant"
+                    HeaderTextColor="White"
+                    IsOpen="False"
+                    ItemsSource="{Binding PlantID}"
+                    OkButtonClicked="picker_OkButtonClicked"
+                    PickerHeight="220"
+                    PickerMode="Dialog"
+                    PickerWidth="150"
+                    ShowColumnHeader="True"
+                    ShowFooter="True" />
+                <StackLayout
+                    Margin="0,0,0,0"
+                    Orientation="Horizontal" HorizontalOptions="Center"
+                    Padding="0">
+                    <StackLayout Margin="0,0,0,0" Spacing="0">
+                        <Image
+                            Margin="0,0,0,0"
+                            Source="logoyasunli"
+                            WidthRequest="220" />
+                        <Label
+                            FontAttributes="Bold"
+                            FontFamily="poppins"
+                            FontSize="30"
+                            Text="Sign in to your account"
+                            TextColor="Red"
+                            VerticalOptions="CenterAndExpand" />
+                    </StackLayout>
+                </StackLayout>
+                <yummy:PancakeView
+                    Margin="0,20,0,0"
+                    BackgroundColor="Red"
+                    CornerRadius="40,40,0,0"
+                    Padding="30,50,30,30"
+                    VerticalOptions="FillAndExpand">
+                    <StackLayout Spacing="30">
+                        <StackLayout Spacing="20">
+                            <Label
+                                Margin="20,0,0,0"
+                                FontFamily="poppins"
+                                FontSize="20"
+                                Text="Username"
+                                TextColor="White" />
+                            <yummy:PancakeView
+                                BackgroundColor="White"
+                                BorderThickness="5"
+                                CornerRadius="15"
+                                Elevation="3"
+                                HasShadow="True"
+                                HeightRequest="50"
+                                Padding="10,0,10,0">
+                                <renderers:BorderlessEntry
+                                    x:Name="txtUsername"
+                                    FontFamily="poppins"
+                                    FontSize="20"
+                                    Keyboard="Email"
+                                    TextColor="#484848" />
+                            </yummy:PancakeView>
+                        </StackLayout>
+                        <StackLayout Spacing="20">
+                            <Label
+                                Margin="20,0,0,0"
+                                FontFamily="poppins"
+                                FontSize="20"
+                                Text="Password"
+                                TextColor="White" />
+                            <yummy:PancakeView
+                                BackgroundColor="White"
+                                BorderThickness="5"
+                                CornerRadius="15"
+                                Elevation="3"
+                                HasShadow="True"
+                                HeightRequest="50"
+                                Padding="10,0,10,0">
+                                <renderers:BorderlessEntry
+                                    x:Name="txtPassword"
+                                    FontFamily="poppins"
+                                    FontSize="25"
+                                    IsPassword="True"
+                                    TextColor="#484848" />
+                            </yummy:PancakeView>
+                        </StackLayout>
+                        <yummy:PancakeView
+                            BackgroundColor="White"
+                            CornerRadius="25"
+                            Elevation="3"
+                            HasShadow="True"
+                            HeightRequest="70"
+                            HorizontalOptions="CenterAndExpand"
+                            IsClippedToBounds="True">
+                            <Grid Margin="5,0,35,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <ffimageloading:CachedImage
+                                    Grid.Column="0"
+                                    Aspect="AspectFit"
+                                    DownsampleToViewSize="True"
+                                    HorizontalOptions="Center"
+                                    Source="SelectPlant"
+                                    WidthRequest="100" />
+                                <Label
+                                    x:Name="txtPlant"
+                                    Grid.Column="1"
+                                    Margin="0,0"
+                                    FontSize="{StaticResource LargerSize}"
+                                    HorizontalOptions="Center"
+                                    HorizontalTextAlignment="Center"
+                                    Style="{StaticResource PoppinsBoldLabelStyle}"
+                                    Text="Select Plant"
+                                    TextColor="{StaticResource BlackTextColor}"
+                                    VerticalOptions="Center"
+                                    VerticalTextAlignment="Center" />
+                            </Grid>
+                            <yummy:PancakeView.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectPlantClick" />
+                            </yummy:PancakeView.GestureRecognizers>
+                        </yummy:PancakeView>
+                        <yummy:PancakeView
+                            BackgroundColor="White"
+                            BorderThickness="1"
+                            CornerRadius="25"
+                            Elevation="3"
+                            HeightRequest="70"
+                            HorizontalOptions="CenterAndExpand"
+                            WidthRequest="200">
+                            <Label
+                                FontAttributes="Bold"
+                                FontFamily="poppins"
+                                FontSize="30"
+                                HorizontalOptions="CenterAndExpand"
+                                Text="Login"
+                                TextColor="Red"
+                                VerticalOptions="CenterAndExpand">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="LoginClick" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </yummy:PancakeView>
+                    </StackLayout>
+                </yummy:PancakeView>
+            </StackLayout>
+        </ScrollView>
+    </screens:BaseContentPage.Content>
+
+</screens:BaseContentPage>

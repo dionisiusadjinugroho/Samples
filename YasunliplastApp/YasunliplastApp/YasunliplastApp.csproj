@@ -1,0 +1,144 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <AssemblyName>YasunliplastApp</AssemblyName>
+    <RootNamespace>YasunliplastApp</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LiveXAML" Version="2.1.73" />
+    <PackageReference Include="MQTTnet" Version="3.0.12" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Refractored.MvvmHelpers" Version="1.3.0" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="1.2.0.223" />
+    <PackageReference Include="Syncfusion.Xamarin.SfBackdrop" Version="17.2.0.46" />
+    <PackageReference Include="Syncfusion.Xamarin.SfBarcode" Version="17.2.0.46" />
+    <PackageReference Include="Syncfusion.Xamarin.SfBusyIndicator" Version="17.2.0.46" />
+    <PackageReference Include="Syncfusion.Xamarin.SfCarousel" Version="17.2.0.46" />
+    <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="17.2.0.46" />
+    <PackageReference Include="Syncfusion.Xamarin.SfDataGrid" Version="17.2.0.46" />
+    <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="17.2.0.46" />
+    <PackageReference Include="Syncfusion.Xamarin.SfPicker" Version="17.2.0.46" />
+    <PackageReference Include="Syncfusion.Xamarin.SfPopupLayout" Version="17.2.0.46" />
+    <PackageReference Include="Syncfusion.Xamarin.SfPullToRefresh" Version="17.2.0.46" />
+    <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991640" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
+    <PackageReference Include="Xamarin.Forms.PancakeView" Version="1.3.7" />
+    <PackageReference Include="ZXing.Net.Mobile" Version="2.4.1" />
+    <PackageReference Include="ZXing.Net.Mobile.Forms" Version="2.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="IEI.Label">
+      <HintPath>..\..\..\..\..\Library Dion\dll kurang\IEI.Label.dll</HintPath>
+    </Reference>
+    <Reference Include="Java.Interop">
+      <HintPath>C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v1.0\Java.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Android">
+      <HintPath>C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v9.0\Mono.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="XamarinZebraRFID">
+      <HintPath>..\..\..\..\..\Xamarin Sample\Zebra Library Android\Zebra_RFIDAPI3_XAMARIN_SDK_2.0.1.27\SDK_DLL\XamarinZebraRFID.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\STOGudangReadyView.xaml.cs">
+      <DependentUpon>STOGudangReadyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\RFIDPairingView.xaml.cs">
+      <DependentUpon>RFIDPairingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\DEMOScannerZebraRFID_CheckerItemDeliveryView.xaml.cs">
+      <DependentUpon>DEMOScannerZebraRFID_CheckerItemDeliveryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\DEMOScannerZebraRFID_DeliveryEPSONView.xaml.cs">
+      <DependentUpon>DEMOScannerZebraRFID_DeliveryEPSONView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\DEMOScannerZebraRFIDView.xaml.cs">
+      <DependentUpon>DEMOScannerZebraRFIDView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ReworkLocationView.xaml.cs">
+      <DependentUpon>ReworkLocationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\TRIALCounterReworkINView.xaml.cs">
+      <DependentUpon>TRIALCounterReworkINView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\TRIALCounterInjectionView.xaml.cs">
+      <DependentUpon>TRIALCounterInjectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\DEMOScannerZebraView.xaml.cs">
+      <DependentUpon>DEMOScannerZebraView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SPPAktivitasView.xaml.cs">
+      <DependentUpon>SPPAktivitasView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\HistoryBox.xaml.cs">
+      <DependentUpon>HistoryBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SchedulingView.xaml.cs">
+      <DependentUpon>SchedulingView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\STOGudangReadyView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\RFIDPairingView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\SPPAktivitasView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\AbsensiOpView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Base\CustomNavigationPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ChangePasswordView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\HelloView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\HomeView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\LoginView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MonitoringStockView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\HistoryBox.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\QCSamplingDetailView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\QCSamplingView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ReportAbsensiView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ReportSamplingView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\SelectPlantView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

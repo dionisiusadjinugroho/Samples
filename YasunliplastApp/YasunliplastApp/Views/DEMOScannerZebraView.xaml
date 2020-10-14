@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<screens:BaseContentPage x:Class="YasunliplastApp.Views.DEMOScannerZebraView"
+                         xmlns="http://xamarin.com/schemas/2014/forms"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                         xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                         xmlns:syncfusionListView="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+                         xmlns:renderers="clr-namespace:YasunliplastApp"
+                         xmlns:datetimepicker="clr-namespace:YasunliplastApp.Utils"
+                         xmlns:screens="clr-namespace:YasunliplastApp.Views.Base"
+                         mc:Ignorable="d">
+
+    <screens:BaseContentPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:Key="HeaderSize"
+                        Android="11"
+                        iOS="10"
+                        x:TypeArguments="x:Double" />
+            <Style x:Key="HeaderTextStyle"
+                   BasedOn="{StaticResource PoppinsRegularLabelStyle}"
+                   TargetType="Label">
+                <Setter Property="FontSize"
+                        Value="{StaticResource LittleSize}" />
+                <Setter Property="TextColor"
+                        Value="{StaticResource LightGrayColor}" />
+                <Setter Property="VerticalOptions"
+                        Value="Start" />
+                <Setter Property="MaxLines"
+                        Value="1" />
+                <Setter Property="Margin">
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Value="3,5,0,0"
+                            Platform="Android" />
+                        <On Value="0,5,0,5"
+                            Platform="iOS" />
+                    </OnPlatform>
+                </Setter>
+            </Style>
+            <Style x:Key="EntryFieldStyle"
+                   BasedOn="{StaticResource BaseEntryStyle}"
+                   TargetType="{x:Type Entry}">
+                <Setter Property="FontSize"
+                        Value="{StaticResource MediumSize}" />
+            </Style>
+            <Style x:Key="ScanValueTextStyle"
+                   BasedOn="{StaticResource PoppinsSemiBoldLabelStyle}"
+                   TargetType="Label">
+                <Setter Property="TextColor"
+                        Value="{StaticResource BlackTextColor}" />
+                <Setter Property="FontSize"
+                        Value="{StaticResource MediumSize}" />
+                <Setter Property="VerticalOptions"
+                        Value="Center" />
+                <Setter Property="MaxLines"
+                        Value="5" />
+                <Setter Property="Margin">
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Value="3,5,0,0"
+                            Platform="Android" />
+                        <On Value="0,5,0,5"
+                            Platform="iOS" />
+                    </OnPlatform>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </screens:BaseContentPage.Resources>
+
+    <screens:BaseContentPage.Content>
+        <AbsoluteLayout>
+            <ScrollView AbsoluteLayout.LayoutBounds="0,0,1,1"
+                        AbsoluteLayout.LayoutFlags="All">
+                <Grid RowSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackLayout Grid.Row="0"
+                                 Grid.Column="0"
+                                 Margin="10,10,10,10"
+                                 Orientation="Vertical"
+                                 VerticalOptions="FillAndExpand">
+                        <datetimepicker:DateTimePicker x:Name="dtimepicker_start"
+                                                       BindingContext="{Binding Source={datetimepicker:DateTimeViewModel}}"
+                                                       ColumnHeaderHeight="40"
+                                                       HeaderText="Pick Start Date"
+                                                       HorizontalOptions="Start"
+                                                       PickerHeight="400"
+                                                       PickerMode="Dialog"
+                                                       PickerWidth="300"
+                                                       SelectedItem="{Binding StartDate}"
+                                                       VerticalOptions="Center" />
+                        <datetimepicker:DateTimePicker x:Name="dtimepicker_end"
+                                                       BindingContext="{Binding Source={datetimepicker:DateTimeViewModel}}"
+                                                       ColumnHeaderHeight="40"
+                                                       HeaderText="Pick End Date"
+                                                       HorizontalOptions="Start"
+                                                       PickerHeight="400"
+                                                       PickerMode="Dialog"
+                                                       PickerWidth="300"
+                                                       SelectedItem="{Binding StartDate}"
+                                                       VerticalOptions="Center" />
+
+                        <renderers:SoftkeyboardDisabledEntry FontFamily="poppins"
+                                                             FontSize="25"
+                                                             TextColor="#484848"
+                                                             AutoSize="TextChanges"
+                                                             x:Name="textboxScan" />
+                        <Label x:Name="labeltotal" FontSize="25" FontFamily="poppins" Text="Total = 0"/>
+                        <Button x:Name="buttonadd"
+                                Clicked="buttonadd_Clicked"
+                                Text="ADD DUMMY"
+                                IsVisible="False" />
+
+                        <SearchBar x:Name="filterText"
+                                   IsVisible="true"
+                                   Placeholder="Search here to filter"
+                                   TextChanged="filterText_TextChanged">
+                        </SearchBar>
+                        <syncfusionListView:SfListView x:Name="sfListView"
+                                                       ItemsSource="{Binding listDataBarcode}"
+                                                       ItemSize="100"
+                                                       ItemSpacing="5"
+                                                       SelectionMode="None"
+                                                       AutoFitMode="Height">
+                            <syncfusionListView:SfListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame CornerRadius="15"
+                                           Padding="3"
+                                           Margin="1"
+                                           HasShadow="True">
+                                        <Grid Padding="3"
+                                              Margin="3,3,3,3"
+                                              VerticalOptions="FillAndExpand"
+                                              HorizontalOptions="FillAndExpand"
+                                              RowSpacing="3">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*" />
+                                                <RowDefinition Height="*" />
+                                                <RowDefinition Height="*" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="50" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <Image Source="ItemSampling.png"
+                                                   Grid.Row="0"
+                                                   Grid.Column="0"
+                                                   Grid.RowSpan="3"
+                                                   VerticalOptions="FillAndExpand"
+                                                   HorizontalOptions="FillAndExpand" />
+
+                                            <Label Text="{Binding BarcodeID}"
+                                                   Grid.Column="1"
+                                                   Grid.Row="0"
+                                                   Style="{StaticResource ScanValueTextStyle}"
+                                                   FontSize="Default" />
+                                            <Label Text="{Binding ItemID}"
+                                                   Grid.Column="1"
+                                                   Grid.Row="1"
+                                                   Style="{StaticResource ScanValueTextStyle}"
+                                                   FontSize="Default" />
+                                            <Label Text="{Binding ItemName}"
+                                                   Grid.Column="1"
+                                                   Grid.Row="2"
+                                                   Style="{StaticResource ScanValueTextStyle}"
+                                                   FontSize="Default" />
+                                        </Grid>
+                                    </Frame>
+                                </DataTemplate>
+                            </syncfusionListView:SfListView.ItemTemplate>
+                        </syncfusionListView:SfListView>
+                    </StackLayout>
+                </Grid>
+            </ScrollView>
+
+            <ContentView AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         AbsoluteLayout.LayoutFlags="All"
+                         BackgroundColor="{StaticResource LoaderBackColor}"
+                         IsVisible="{Binding IsBusy}"
+                         Opacity="0.2" />
+            <ActivityIndicator AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+                               AbsoluteLayout.LayoutFlags="PositionProportional"
+                               IsRunning="{Binding IsBusy}"
+                               IsVisible="{Binding IsBusy}" />
+        </AbsoluteLayout>
+    </screens:BaseContentPage.Content>
+</screens:BaseContentPage>

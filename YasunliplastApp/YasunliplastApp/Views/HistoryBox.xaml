@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<screens:BaseContentPage
+    x:Class="YasunliplastApp.Views.HistoryBox"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:datetimepicker="clr-namespace:YasunliplastApp.Utils"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:screens="clr-namespace:YasunliplastApp.Views.Base"
+    xmlns:SyncFusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms"
+    xmlns:syncfusionPtRefresh="clr-namespace:Syncfusion.SfPullToRefresh.XForms;assembly=Syncfusion.SfPullToRefresh.XForms"
+    xmlns:syncfusionListView="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+    xmlns:resConverter="clr-namespace:YasunliplastApp.ViewModels"
+    mc:Ignorable="d">
+
+    <screens:BaseContentPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform
+                x:Key="HeaderSize"
+                Android="11"
+                iOS="10"
+                x:TypeArguments="x:Double" />
+            <Style
+                x:Key="HeaderTextStyle"
+                BasedOn="{StaticResource PoppinsRegularLabelStyle}"
+                TargetType="Label">
+                <Setter Property="FontSize" Value="{StaticResource LittleSize}" />
+                <Setter Property="TextColor" Value="{StaticResource LightGrayColor}" />
+                <Setter Property="VerticalOptions" Value="Start" />
+                <Setter Property="MaxLines" Value="1" />
+                <Setter Property="Margin">
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Value="3,5,0,0" Platform="Android" />
+                        <On Value="0,5,0,5" Platform="iOS" />
+                    </OnPlatform>
+                </Setter>
+            </Style>
+            <Style
+                x:Key="EntryFieldStyle"
+                BasedOn="{StaticResource BaseEntryStyle}"
+                TargetType="{x:Type Entry}">
+                <Setter Property="FontSize" Value="{StaticResource MediumSize}" />
+            </Style>
+            <Style
+                x:Key="ScanValueTextStyle"
+                BasedOn="{StaticResource PoppinsSemiBoldLabelStyle}"
+                TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource BlackTextColor}" />
+                <Setter Property="FontSize" Value="{StaticResource MediumSize}" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="MaxLines" Value="5" />
+                <Setter Property="Margin">
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Value="3,5,0,0" Platform="Android" />
+                        <On Value="0,5,0,5" Platform="iOS" />
+                    </OnPlatform>
+                </Setter>
+            </Style>
+            <resConverter:ReportAbsensiViewModel x:Key="Base64ToImageConverter" />
+        </ResourceDictionary>
+    </screens:BaseContentPage.Resources>
+
+    <screens:BaseContentPage.Content>
+        <AbsoluteLayout>
+            <syncfusionPtRefresh:SfPullToRefresh
+                x:Name="sfPullToRefresh1"
+                IsRefreshing="False"
+                PullingThreshold="100"
+                RefreshContentHeight="70"
+                RefreshContentThreshold="0"
+                RefreshContentWidth="70"
+                TransitionMode="SlideOnTop">
+                <syncfusionPtRefresh:SfPullToRefresh.PullableContent>
+                    <ScrollView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+                        <Grid RowSpacing="0">
+                            <StackLayout Grid.Row="0">
+                                <Grid>
+                                    <Label Text="Barcode ID" FontSize="16" Margin="20,10,0,0"/>
+                                    <Entry x:Name="brcd_ID" Margin="50,-15,0,0" IsEnabled="False" Scale="0.7" FontSize="25" />
+                                </Grid>
+                            </StackLayout>
+                            <StackLayout Grid.Row="0" Margin="0,60,0,0">
+                                <Grid HorizontalOptions="FillAndExpand" Margin="10,0,-50,0" ColumnSpacing="10" RowSpacing="20" WidthRequest="500" >
+                                    <StackLayout
+                                     HorizontalOptions="FillAndExpand"
+                                     Margin="10,0,0,0">
+                                        <Label Text="Jumlah Barang" FontSize="12" Grid.Row="0"/>
+                                        <Entry x:Name="jmlhbrg" Margin="-50,-20,0,0" IsEnabled="False" Scale="0.6" Grid.Row="0"/>
+                                        <Label Text="Posisi Saat ini" FontSize="12" Grid.Row="1"/>
+                                        <Entry x:Name="posisiNow" Margin="-50,-20,0,0" IsEnabled="False" Scale="0.6" Grid.Row="1"/>
+                                        <Label Text="Posisi Tujuan" FontSize="12" Grid.Row="2"/>
+                                        <Entry x:Name="posisiTo" Margin="-50,-20,0,0" IsEnabled="False" Scale="0.6" Grid.Row="2"/>
+                                        <Label Text="Posisi Terakhir Scan" FontSize="12"/>
+                                        <Entry x:Name="PosisiLastScan" Margin="-50,-20,0,0" IsEnabled="False" Scale="0.6" Grid.Row="3"/>
+                                        <Label Text="Waktu Terakhir Scan" FontSize="12"/>
+                                        <Entry x:Name="WaktuLastScan" Margin="-50,-20,0,0" IsEnabled="False" Scale="0.6" Grid.Row="4" />
+                                        <Label Text="Package" FontSize="12"/>
+                                        <Entry x:Name="pack" Margin="-50,-20,0,0" IsEnabled="False" Scale="0.6" Grid.Row="5"/>
+                                        <Label Text="Item ID" FontSize="12"/>
+                                        <Entry x:Name="itemID" Margin="-50,-20,0,0" IsEnabled="False" Scale="0.6" Grid.Row="6"/>
+                                        <Label Text="Operator Scan" FontSize="12"/>
+                                        <Entry x:Name="Operator_Scan" Margin="-50,-20,0,0" IsEnabled="False" Scale="0.6" Grid.Row="7"/>
+                                        <Label Text="Operator Label" FontSize="12"/>
+                                        <Entry x:Name="opr_labl" Margin="-50,-20,0,0" IsEnabled="False" Scale="0.6" Grid.Row="8"/>
+                                        <Label Text="Operator Injection" FontSize="12"/>
+                                        <Entry x:Name="opr_injct" Margin="-50,-20,0,0" IsEnabled="False" Scale="0.6" Grid.Row="9"/>
+                                    </StackLayout>
+                                    <StackLayout Margin="-50,0,0,0" Grid.Column="1">
+                                        <Label Text="Adm Package" FontSize="12"/>
+                                        <Entry x:Name="adm_Pack" Margin="-60,-20,0,0" IsEnabled="False" Scale="0.6" Grid.Row="0"/>
+                                        <Label Text="Scan Package" FontSize="12"/>
+                                        <Entry x:Name="scn_Pack" Margin="-60,-20,0,0" IsEnabled="False" Scale="0.6" Grid.Row="1"/>
+                                        <Label Text="Leader Package" FontSize="12"/>
+                                        <Entry x:Name="ldr_Pack" Margin="-60,-20,0,0" IsEnabled="False" Scale="0.6" Grid.Row="2"/>
+                                        <Label Text="QC Package" FontSize="12"/>
+                                        <Entry x:Name="qc_Pack" Margin="-60,-20,0,0" IsEnabled="False" Scale="0.6" Grid.Row="3"/>
+                                        <Label Text="WH Package" FontSize="12"/>
+                                        <Entry x:Name="wh_Pack" Margin="-60,-20,0,0" IsEnabled="False" Scale="0.6" Grid.Row="4"/>
+
+                                        <Label Text="Item Name" FontSize="12" Margin="0,0,0,0"/>
+                                        <Entry x:Name="item" Margin="-60,-20,0,0" IsEnabled="False" Scale="0.6"/>
+                                        <Label Text="Status" FontSize="12" Margin="0,0,0,0"/>
+                                        <Entry x:Name="status" Margin="-60,-20,0,0" IsEnabled="False" Scale="0.6"/>
+                                        <Label Text="Hold ID" FontSize="12" Margin="0,0,0,0"/>
+                                        <Entry x:Name="hold_ID" Margin="-60,-20,0,0" IsEnabled="False" Scale="0.6"/>
+                                        <Label Text="Adm Hold" FontSize="12" Margin="0,0,0,0"/>
+                                        <Entry x:Name="adm_hold" Margin="-60,-20,0,0" IsEnabled="False" Scale="0.6"/>
+                                        <Label Text="Release Hold" FontSize="12" Margin="0,0,0,0"/>
+                                        <Entry x:Name="release_hold" Margin="-60,-20,0,0" IsEnabled="False" Scale="0.6"/>
+                                    </StackLayout>
+                                </Grid>
+                            </StackLayout>
+                            <StackLayout Grid.Row="0" Margin="0,700,0,0" Padding="10">
+                                <SyncFusion:SfDataGrid
+                                        x:Name="DataGridSF_HistoryBox"
+                                        AutoGenerateColumns="False"
+                                        ColumnSizer="Star"
+                                        SelectionMode="Single" 
+                                        VerticalOverScrollMode="None">
+                                    <SyncFusion:SfDataGrid.Columns>
+                                        <SyncFusion:GridTextColumn
+                                                HeaderText="ScanTime" CellTextSize="10"
+                                                MappingName="ScanTime"
+                                                MinimumWidth="50" />
+                                        <SyncFusion:GridTextColumn
+                                                HeaderText="Keterangan" CellTextSize="10"
+                                                MappingName="Keterangan"
+                                                MinimumWidth="50" />
+                                        <SyncFusion:GridTextColumn
+                                                HeaderText="AdmScan" CellTextSize="10"
+                                                MappingName="AdmScan"
+                                                MinimumWidth="50" />
+                                        <SyncFusion:GridTextColumn
+                                                HeaderText="PlannerScan" CellTextSize="10"
+                                                MappingName="PlannerScan"
+                                                MinimumWidth="50" />
+                                        <SyncFusion:GridTextColumn
+                                                HeaderText="ReceiveBy" CellTextSize="10"
+                                                MappingName="ReceiveBy"
+                                                MinimumWidth="50" />
+                                    </SyncFusion:SfDataGrid.Columns>
+                                </SyncFusion:SfDataGrid>
+                            </StackLayout>
+
+                        </Grid>
+                    </ScrollView>
+                </syncfusionPtRefresh:SfPullToRefresh.PullableContent>
+            </syncfusionPtRefresh:SfPullToRefresh>
+            <ContentView
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All"
+                BackgroundColor="{StaticResource LoaderBackColor}"
+                IsVisible="{Binding IsBusy}"
+                Opacity="0.2" />
+            <ActivityIndicator
+                AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                IsRunning="{Binding IsBusy}"
+                IsVisible="{Binding IsBusy}" />
+        </AbsoluteLayout>
+    </screens:BaseContentPage.Content>
+
+</screens:BaseContentPage>

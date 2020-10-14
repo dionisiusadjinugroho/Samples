@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<screens:BaseContentPage x:Class="YasunliplastApp.Views.SPPAktivitasView"
+                         xmlns="http://xamarin.com/schemas/2014/forms"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                         xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                         xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                         xmlns:pancakeControl="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+                         xmlns:renderers="clr-namespace:YasunliplastApp.Renderers"
+                         xmlns:screens="clr-namespace:YasunliplastApp.Views.Base"
+                         xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+                         xmlns:syncfusionListView="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+                         mc:Ignorable="d"
+                         BackgroundColor="White">
+
+    <screens:BaseContentPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:Key="HeaderSize"
+                        Android="11"
+                        iOS="10"
+                        x:TypeArguments="x:Double" />
+            <Style x:Key="HeaderTextStyle"
+                   BasedOn="{StaticResource PoppinsRegularLabelStyle}"
+                   TargetType="Label">
+                <Setter Property="FontSize"
+                        Value="{StaticResource LittleSize}" />
+                <Setter Property="TextColor"
+                        Value="{StaticResource LightGrayColor}" />
+                <Setter Property="VerticalOptions"
+                        Value="Start" />
+                <Setter Property="MaxLines"
+                        Value="1" />
+                <Setter Property="Margin">
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Value="3,5,0,0"
+                            Platform="Android" />
+                        <On Value="0,5,0,5"
+                            Platform="iOS" />
+                    </OnPlatform>
+                </Setter>
+            </Style>
+            <Style x:Key="EntryFieldStyle"
+                   BasedOn="{StaticResource BaseEntryStyle}"
+                   TargetType="{x:Type Entry}">
+                <Setter Property="FontSize"
+                        Value="{StaticResource MediumSize}" />
+            </Style>
+            <Style x:Key="ScanValueTextStyle"
+                   BasedOn="{StaticResource PoppinsSemiBoldLabelStyle}"
+                   TargetType="Label">
+                <Setter Property="TextColor"
+                        Value="{StaticResource BlackTextColor}" />
+                <Setter Property="FontSize"
+                        Value="{StaticResource MediumSize}" />
+                <Setter Property="VerticalOptions"
+                        Value="Center" />
+                <Setter Property="MaxLines"
+                        Value="5" />
+                <Setter Property="Margin">
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Value="3,5,0,0"
+                            Platform="Android" />
+                        <On Value="0,5,0,5"
+                            Platform="iOS" />
+                    </OnPlatform>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </screens:BaseContentPage.Resources>
+
+    <screens:BaseContentPage.Content>
+        <ScrollView HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand">
+            <AbsoluteLayout>
+                <FlexLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
+                            AbsoluteLayout.LayoutFlags="All"
+                            Direction="Column"
+                            HorizontalOptions="FillAndExpand"
+                            JustifyContent="Center"
+                            VerticalOptions="FillAndExpand">
+                    <pancakeControl:PancakeView Margin="20,10"
+                                                BackgroundColor="White"
+                                                CornerRadius="20"
+                                                Elevation="5"
+                                                FlexLayout.Order="0"
+                                                HasShadow="True"
+                                                IsClippedToBounds="True">
+                        <Grid Margin="15">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <ffimageloading:CachedImage Grid.Row="0"
+                                                        Aspect="AspectFit"
+                                                        DownsampleToViewSize="True"
+                                                        HorizontalOptions="Center"
+                                                        Source="ScanQRCode"
+                                                        WidthRequest="100" />
+                            <Label Grid.Row="1"
+                                   Margin="0,10"
+                                   FontSize="{StaticResource LargerSize}"
+                                   HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Center"
+                                   Style="{StaticResource PoppinsBoldLabelStyle}"
+                                   Text="SCAN MACHINE"
+                                   TextColor="{StaticResource BlackTextColor}" />
+                        </Grid>
+                        <pancakeControl:PancakeView.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ScanQRClick" />
+                        </pancakeControl:PancakeView.GestureRecognizers>
+                    </pancakeControl:PancakeView>
+
+                    <pancakeControl:PancakeView Margin="20,10,20,0"
+                                                BackgroundColor="WhiteSmoke"
+                                                CornerRadius="40,40,40,40"
+                                                Padding="30,30,30,30"
+                                                VerticalOptions="FillAndExpand">
+                        <StackLayout Spacing="20">
+                            <StackLayout Spacing="20">
+                                <Label Margin="20,0,0,0"
+                                       FontFamily="poppins"
+                                       FontSize="20"
+                                       Text="Activity"
+                                       TextColor="Black" />
+                                <combobox:SfComboBox x:Name="Combobox_Activity"
+                                                     AllowFiltering="true"
+                                                     ClearButtonColor="Red"
+                                                     DropDownItemHeight="50"
+                                                     HighlightedTextColor="Red"
+                                                     HighlightedTextFontAttributes="Bold"
+                                                     HorizontalOptions="FillAndExpand"
+                                                     VerticalOptions="StartAndExpand"
+                                                     IsEditableMode="True"
+                                                     IsSelectedItemsVisibleInDropDown="False"
+                                                     IsVisible="True"
+                                                     MultiSelectMode="None"
+                                                     SuggestionMode="Contains"
+                                                     TextColor="Black"
+                                                     TextHighlightMode="MultipleOccurrence"
+                                                     ValueChanged="Combobox_Activity_ValueChanged"
+                                                     Watermark="-- Enter Activity --"
+                                                     WatermarkColor="DimGray"/>
+                                <SearchBar x:Name="filterText"
+                                           Grid.Row="0"
+                                           Grid.Column="0"
+                                           IsVisible="true"
+                                           Placeholder="Search here to filter"
+                                           TextChanged="filterText_TextChanged" />
+                                <syncfusionListView:SfListView HorizontalOptions="FillAndExpand"
+                                                               VerticalOptions="End"
+                                                               x:Name="sfListView"
+                                                               ItemSize="150"
+                                                               ItemSpacing="5"
+                                                               ItemsSource="{Binding sppaktivitas}"
+                                                               SelectionMode="Single">
+                                    <syncfusionListView:SfListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Frame Margin="1"
+                                                   CornerRadius="15"
+                                                   HasShadow="True"
+                                                   Padding="3">
+                                                <Grid Margin="3,3,3,3"
+                                                      HorizontalOptions="FillAndExpand"
+                                                      Padding="3"
+                                                      RowSpacing="3"
+                                                      VerticalOptions="FillAndExpand">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*" />
+                                                        <RowDefinition Height="*" />
+                                                        <RowDefinition Height="*" />
+                                                        <RowDefinition Height="*" />
+                                                        <RowDefinition Height="*" />
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="50" />
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.GestureRecognizers>
+                                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.ItemTappedCommand, Source={x:Reference sfListView}}"
+                                                                              CommandParameter="{Binding .}}" />
+                                                    </Grid.GestureRecognizers>
+                                                    <Image Grid.Row="0"
+                                                           Grid.RowSpan="5"
+                                                           Grid.Column="0"
+                                                           HorizontalOptions="FillAndExpand"
+                                                           Source="ArmRobot.png"
+                                                           VerticalOptions="FillAndExpand" />
+                                                    <Label Grid.Row="0"
+                                                           Grid.Column="1"
+                                                           FontSize="Small"
+                                                           Style="{StaticResource ScanValueTextStyle}"
+                                                           Text="{Binding SPPNo}"
+                                                           TextColor="{Binding Color}" />
+                                                    <Label Grid.Row="1"
+                                                           Grid.Column="1"
+                                                           FontSize="Small"
+                                                           Style="{StaticResource ScanValueTextStyle}"
+                                                           Text="{Binding TechnisiName}"
+                                                           TextColor="{Binding Color}" />
+                                                    <Label Grid.Row="2"
+                                                           Grid.Column="1"
+                                                           FontSize="Small"
+                                                           Style="{StaticResource ScanValueTextStyle}"
+                                                           Text="{Binding CustomerName}"
+                                                           TextColor="{Binding Color}" />
+                                                    <Label Grid.Row="3"
+                                                           Grid.Column="1"
+                                                           FontSize="Small"
+                                                           Style="{StaticResource ScanValueTextStyle}"
+                                                           Text="{Binding MouldName}"
+                                                           TextColor="{Binding Color}" />
+                                                    <Label Grid.Row="4"
+                                                           Grid.Column="1"
+                                                           FontSize="Small"
+                                                           Style="{StaticResource ScanValueTextStyle}"
+                                                           Text="{Binding Model}"
+                                                           TextColor="{Binding Color}" />
+                                                </Grid>
+                                            </Frame>
+                                        </DataTemplate>
+                                    </syncfusionListView:SfListView.ItemTemplate>
+                                </syncfusionListView:SfListView>
+
+
+                            </StackLayout>
+
+                        </StackLayout>
+                    </pancakeControl:PancakeView>
+                </FlexLayout>
+            </AbsoluteLayout>
+
+        </ScrollView>
+
+    </screens:BaseContentPage.Content>
+
+</screens:BaseContentPage>

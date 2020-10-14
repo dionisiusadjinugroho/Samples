@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<screens:BaseContentPage
+    x:Class="YasunliplastApp.Views.AbsensiOpView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pancakeControl="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:renderers="clr-namespace:YasunliplastApp.Renderers"
+    xmlns:screens="clr-namespace:YasunliplastApp.Views.Base"
+                         xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+                         mc:Ignorable="d"
+    BackgroundColor="White">
+
+    <screens:BaseContentPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform
+                x:Key="HeaderSize"
+                Android="11"
+                iOS="10"
+                x:TypeArguments="x:Double" />
+            <Style
+                x:Key="HeaderTextStyle"
+                BasedOn="{StaticResource PoppinsRegularLabelStyle}"
+                TargetType="Label">
+                <Setter Property="FontSize" Value="{StaticResource LittleSize}" />
+                <Setter Property="TextColor" Value="{StaticResource LightGrayColor}" />
+                <Setter Property="VerticalOptions" Value="Start" />
+                <Setter Property="MaxLines" Value="1" />
+                <Setter Property="Margin">
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Value="3,5,0,0" Platform="Android" />
+                        <On Value="0,5,0,5" Platform="iOS" />
+                    </OnPlatform>
+                </Setter>
+            </Style>
+            <Style
+                x:Key="EntryFieldStyle"
+                BasedOn="{StaticResource BaseEntryStyle}"
+                TargetType="{x:Type Entry}">
+                <Setter Property="FontSize" Value="{StaticResource MediumSize}" />
+            </Style>
+            <Style
+                x:Key="ScanValueTextStyle"
+                BasedOn="{StaticResource PoppinsSemiBoldLabelStyle}"
+                TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource BlackTextColor}" />
+                <Setter Property="FontSize" Value="{StaticResource MediumSize}" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="MaxLines" Value="5" />
+                <Setter Property="Margin">
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Value="3,5,0,0" Platform="Android" />
+                        <On Value="0,5,0,5" Platform="iOS" />
+                    </OnPlatform>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </screens:BaseContentPage.Resources>
+
+    <screens:BaseContentPage.Content>
+        <AbsoluteLayout>
+            <FlexLayout
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All"
+                Direction="Column"
+                HorizontalOptions="FillAndExpand"
+                JustifyContent="Center"
+                VerticalOptions="FillAndExpand">
+                <pancakeControl:PancakeView
+                    Margin="20,10"
+                    BackgroundColor="White"
+                    CornerRadius="20"
+                    Elevation="5"
+                    FlexLayout.Order="0"
+                    HasShadow="True"
+                    IsClippedToBounds="True">
+                    <Grid Margin="15">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <ffimageloading:CachedImage
+                            Grid.Row="0"
+                            Aspect="AspectFit"
+                            DownsampleToViewSize="True"
+                            HorizontalOptions="Center"
+                            Source="ScanQRCode"
+                            WidthRequest="100" />
+                        <Label
+                            Grid.Row="1"
+                            Margin="0,10"
+                            FontSize="{StaticResource LargerSize}"
+                            HorizontalOptions="Center"
+                            HorizontalTextAlignment="Center"
+                            Style="{StaticResource PoppinsBoldLabelStyle}"
+                            Text="SCAN MACHINE/OPERATOR"
+                            TextColor="{StaticResource BlackTextColor}" />
+                    </Grid>
+                    <pancakeControl:PancakeView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ScanQRClick" />
+                    </pancakeControl:PancakeView.GestureRecognizers>
+                </pancakeControl:PancakeView>
+                <pancakeControl:PancakeView
+                    Margin="20,10,20,0"
+                    BackgroundColor="Red"
+                    CornerRadius="40,40,40,40"
+                    Padding="30,30,30,30"
+                    VerticalOptions="FillAndExpand">
+                    <StackLayout Spacing="30">
+                        <combobox:SfComboBox x:Name="Combobox_Machine"
+                                             MultiSelectMode="None"
+                                             IsSelectedItemsVisibleInDropDown="False"
+                                             TextColor="White"
+                                             MinimumWidthRequest="200"
+                                             HorizontalOptions="EndAndExpand"
+                                             IsVisible="True"
+                                             ClearButtonColor="White"
+                                             DropDownItemHeight="50"
+                                             Watermark="--Select Machine--"
+                                             WatermarkColor="White"
+                                             IsEditableMode="True"
+                                             AllowFiltering="true"
+                                             TextHighlightMode="MultipleOccurrence"
+                                             HighlightedTextColor="Blue"
+                                             HighlightedTextFontAttributes="Bold"
+                                             SuggestionMode="Contains"
+                                             FontAttributes="Bold"
+                                             ValueChanged="Combobox_Machine_ValueChanged">
+                        </combobox:SfComboBox>
+                        <StackLayout Spacing="20">
+                            <Label
+                                Margin="20,0,0,0"
+                                FontFamily="poppins"
+                                FontSize="20"
+                                Text="Machine"
+                                TextColor="White" />
+                            <pancakeControl:PancakeView
+                                BackgroundColor="White"
+                                BorderThickness="5"
+                                CornerRadius="15"
+                                Elevation="3"
+                                HasShadow="True"
+                                HeightRequest="50"
+                                Padding="10,0,10,0">
+                                <Label
+                                    x:Name="txtMachine"
+                                    Margin="5,10,0,0"
+                                    FontFamily="poppins"
+                                    FontSize="20"
+                                    Text=""
+                                    TextColor="Black" />
+                            </pancakeControl:PancakeView>
+                        </StackLayout>
+                        <StackLayout Spacing="20">
+                            <Label
+                                Margin="20,0,0,0"
+                                FontFamily="poppins"
+                                FontSize="20"
+                                Text="Operator"
+                                TextColor="White" />
+                            <pancakeControl:PancakeView
+                                BackgroundColor="White"
+                                BorderThickness="5"
+                                CornerRadius="15"
+                                Elevation="3"
+                                HasShadow="True"
+                                HeightRequest="50"
+                                Padding="10,0,10,0">
+                                <Label
+                                    x:Name="txtOperator"
+                                    Margin="5,10,0,0"
+                                    FontFamily="poppins"
+                                    FontSize="20"
+                                    Text=""
+                                    TextColor="Black" />
+                            </pancakeControl:PancakeView>
+                        </StackLayout>
+                    </StackLayout>
+                </pancakeControl:PancakeView>
+            </FlexLayout>
+        </AbsoluteLayout>
+    </screens:BaseContentPage.Content>
+
+</screens:BaseContentPage>

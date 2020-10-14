@@ -1,0 +1,674 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<screens:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                         xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                         xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                         xmlns:pancakeControl="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+                         xmlns:screens="clr-namespace:YasunliplastApp.Views.Base"
+                         mc:Ignorable="d"
+                         x:Class="YasunliplastApp.Views.HomeView"
+                         BackgroundColor="White">
+    <screens:BaseContentPage.Content>
+        <AbsoluteLayout>
+            <FlexLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
+                        AbsoluteLayout.LayoutFlags="All"
+                        Direction="Column"
+                        JustifyContent="Center">
+                <ScrollView HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand">
+                    <StackLayout>
+                        <pancakeControl:PancakeView x:Name="buttonSampling"
+                                                    x:FieldModifier="Public"
+                                                    IsVisible="False"
+                                                    Margin="20,10"
+                                                    BackgroundColor="White"
+                                                    CornerRadius="8"
+                                                    Elevation="5"
+                                                    FlexLayout.Order="0"
+                                                    HasShadow="False"
+                                                    IsClippedToBounds="True">
+                            <Grid Margin="15">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <ffimageloading:CachedImage Grid.Row="0"
+                                                            Aspect="AspectFit"
+                                                            DownsampleToViewSize="True"
+                                                            HorizontalOptions="Center"
+                                                            Source="QCSampling"
+                                                            WidthRequest="100" />
+                                <Label Grid.Row="1"
+                                       Margin="0,10"
+                                       FontSize="{StaticResource LargerSize}"
+                                       HorizontalOptions="Center"
+                                       HorizontalTextAlignment="Center"
+                                       Style="{StaticResource PoppinsBoldLabelStyle}"
+                                       Text="SAMPLING"
+                                       TextColor="{StaticResource BlackTextColor}" />
+                            </Grid>
+                            <pancakeControl:PancakeView.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OnViewSelection}"
+                                                      CommandParameter="qcsampling" />
+                            </pancakeControl:PancakeView.GestureRecognizers>
+                        </pancakeControl:PancakeView>
+
+                        <pancakeControl:PancakeView x:Name="buttonReportSampling"
+                                                    x:FieldModifier="Public"
+                                                    IsVisible="False"
+                                                    Margin="20,10"
+                                                    BackgroundColor="White"
+                                                    CornerRadius="8"
+                                                    Elevation="5"
+                                                    FlexLayout.Order="0"
+                                                    HasShadow="False"
+                                                    IsClippedToBounds="True">
+                            <Grid Margin="15">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <ffimageloading:CachedImage Grid.Row="0"
+                                                            Aspect="AspectFit"
+                                                            DownsampleToViewSize="True"
+                                                            HorizontalOptions="Center"
+                                                            Source="ReportQC"
+                                                            WidthRequest="100" />
+                                <Label Grid.Row="1"
+                                       Margin="0,10"
+                                       FontSize="{StaticResource LargerSize}"
+                                       HorizontalOptions="Center"
+                                       HorizontalTextAlignment="Center"
+                                       Style="{StaticResource PoppinsBoldLabelStyle}"
+                                       Text="REPORT SAMPLING"
+                                       TextColor="{StaticResource BlackTextColor}" />
+                            </Grid>
+                            <pancakeControl:PancakeView.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OnViewSelection}"
+                                                      CommandParameter="reportqcsampling" />
+                            </pancakeControl:PancakeView.GestureRecognizers>
+                        </pancakeControl:PancakeView>
+
+                        <pancakeControl:PancakeView x:Name="buttonAbsensiOP"
+                                                    x:FieldModifier="Public"
+                                                    IsVisible="False"
+                                                    Margin="20,10"
+                                                    BackgroundColor="White"
+                                                    CornerRadius="8"
+                                                    Elevation="5"
+                                                    FlexLayout.Order="0"
+                                                    HasShadow="False"
+                                                    IsClippedToBounds="True">
+                            <Grid Margin="15">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <ffimageloading:CachedImage Grid.Row="0"
+                                                            Aspect="AspectFit"
+                                                            DownsampleToViewSize="True"
+                                                            HorizontalOptions="Center"
+                                                            Source="Attendance"
+                                                            WidthRequest="100" />
+                                <Label Grid.Row="1"
+                                       Margin="0,10"
+                                       FontSize="{StaticResource LargerSize}"
+                                       HorizontalOptions="Center"
+                                       HorizontalTextAlignment="Center"
+                                       Style="{StaticResource PoppinsBoldLabelStyle}"
+                                       Text="Absensi Operator"
+                                       TextColor="{StaticResource BlackTextColor}" />
+                            </Grid>
+                            <pancakeControl:PancakeView.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OnViewSelection}"
+                                                      CommandParameter="absensi_op" />
+                            </pancakeControl:PancakeView.GestureRecognizers>
+                        </pancakeControl:PancakeView>
+
+                        <pancakeControl:PancakeView x:Name="buttonReportAbsensiOP"
+                                                    x:FieldModifier="Public"
+                                                    IsVisible="False"
+                                                    Margin="20,10"
+                                                    BackgroundColor="White"
+                                                    CornerRadius="8"
+                                                    Elevation="5"
+                                                    FlexLayout.Order="0"
+                                                    HasShadow="False"
+                                                    IsClippedToBounds="True">
+                            <Grid Margin="15">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <ffimageloading:CachedImage Grid.Row="0"
+                                                            Aspect="AspectFit"
+                                                            DownsampleToViewSize="True"
+                                                            HorizontalOptions="Center"
+                                                            Source="AttendanceList"
+                                                            WidthRequest="100" />
+                                <Label Grid.Row="1"
+                                       Margin="0,10"
+                                       FontSize="{StaticResource LargerSize}"
+                                       HorizontalOptions="Center"
+                                       HorizontalTextAlignment="Center"
+                                       Style="{StaticResource PoppinsBoldLabelStyle}"
+                                       Text="List Absensi Operator"
+                                       TextColor="{StaticResource BlackTextColor}" />
+                            </Grid>
+                            <pancakeControl:PancakeView.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OnViewSelection}"
+                                                      CommandParameter="reportabsensi" />
+                            </pancakeControl:PancakeView.GestureRecognizers>
+                        </pancakeControl:PancakeView>
+
+                        <pancakeControl:PancakeView x:Name="buttonStockMonitoring"
+                                                    x:FieldModifier="Public"
+                                                    IsVisible="False"
+                                                    Margin="20,10"
+                                                    BackgroundColor="White"
+                                                    CornerRadius="8"
+                                                    Elevation="5"
+                                                    FlexLayout.Order="0"
+                                                    HasShadow="False"
+                                                    IsClippedToBounds="True">
+                            <Grid Margin="15">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <ffimageloading:CachedImage Grid.Row="0"
+                                                            Aspect="AspectFit"
+                                                            DownsampleToViewSize="True"
+                                                            HorizontalOptions="Center"
+                                                            Source="StockMonitoring"
+                                                            WidthRequest="100" />
+                                <Label Grid.Row="1"
+                                       Margin="0,10"
+                                       FontSize="{StaticResource LargerSize}"
+                                       HorizontalOptions="Center"
+                                       HorizontalTextAlignment="Center"
+                                       Style="{StaticResource PoppinsBoldLabelStyle}"
+                                       Text="Laporan Monitoring Barang"
+                                       TextColor="{StaticResource BlackTextColor}" />
+                            </Grid>
+                            <pancakeControl:PancakeView.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OnViewSelection}"
+                                                      CommandParameter="laporanmonitoringbarang" />
+                            </pancakeControl:PancakeView.GestureRecognizers>
+                        </pancakeControl:PancakeView>
+                        <pancakeControl:PancakeView x:Name="buttonScheduling"
+                                                    x:FieldModifier="Public"
+                                                    IsVisible="False"
+                                                    Margin="20,10"
+                                                    BackgroundColor="White"
+                                                    CornerRadius="8"
+                                                    Elevation="5"
+                                                    FlexLayout.Order="0"
+                                                    HasShadow="False"
+                                                    IsClippedToBounds="True">
+                            <Grid Margin="15">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <ffimageloading:CachedImage Grid.Row="0"
+                                                            Aspect="AspectFit"
+                                                            DownsampleToViewSize="True"
+                                                            HorizontalOptions="Center"
+                                                            Source="Scheduling"
+                                                            WidthRequest="100" />
+                                <Label Grid.Row="1"
+                                       Margin="0,10"
+                                       FontSize="{StaticResource LargerSize}"
+                                       HorizontalOptions="Center"
+                                       HorizontalTextAlignment="Center"
+                                       Style="{StaticResource PoppinsBoldLabelStyle}"
+                                       Text="Scheduling"
+                                       TextColor="{StaticResource BlackTextColor}" />
+                            </Grid>
+                            <pancakeControl:PancakeView.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OnViewSelection}"
+                                                      CommandParameter="scheduling" />
+                            </pancakeControl:PancakeView.GestureRecognizers>
+                        </pancakeControl:PancakeView>
+
+                        <pancakeControl:PancakeView x:Name="buttonSurkom"
+                                                    x:FieldModifier="Public"
+                                                    IsVisible="False"
+                                                    Margin="20,10"
+                                                    BackgroundColor="White"
+                                                    CornerRadius="8"
+                                                    Elevation="5"
+                                                    FlexLayout.Order="0"
+                                                    HasShadow="False"
+                                                    IsClippedToBounds="True">
+                            <Grid Margin="15">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <ffimageloading:CachedImage Grid.Row="0"
+                                                            Aspect="AspectFit"
+                                                            DownsampleToViewSize="True"
+                                                            HorizontalOptions="Center"
+                                                            Source="Surkom"
+                                                            WidthRequest="80" HeightRequest="80" />
+                                <Label Grid.Row="1"
+                                       Margin="0,10"
+                                       FontSize="{StaticResource LargerSize}"
+                                       HorizontalOptions="Center"
+                                       HorizontalTextAlignment="Center"
+                                       Style="{StaticResource PoppinsBoldLabelStyle}"
+                                       Text="Surkom"
+                                       TextColor="{StaticResource BlackTextColor}" />
+                            </Grid>
+                            <pancakeControl:PancakeView.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OnViewSelection}"
+                                                      CommandParameter="surkom" />
+                            </pancakeControl:PancakeView.GestureRecognizers>
+                        </pancakeControl:PancakeView>
+                        
+                        <pancakeControl:PancakeView x:Name="buttonHistoryBox"
+                                                    x:FieldModifier="Public"
+                                                    IsVisible="False"
+                                                    Margin="20,10"
+                                                    BackgroundColor="White"
+                                                    CornerRadius="8"
+                                                    Elevation="5"
+                                                    FlexLayout.Order="0"
+                                                    HasShadow="False"
+                                                    IsClippedToBounds="True">
+                            <Grid Margin="15">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <ffimageloading:CachedImage Grid.Row="0"
+                                                            Aspect="AspectFit"
+                                                            DownsampleToViewSize="True"
+                                                            HorizontalOptions="Center"
+                                                            Source="BoxScan2"
+                                                            WidthRequest="200" />
+                                <Label Grid.Row="1"
+                                       Margin="0,10"
+                                       FontSize="{StaticResource LargerSize}"
+                                       HorizontalOptions="Center"
+                                       HorizontalTextAlignment="Center"
+                                       Style="{StaticResource PoppinsBoldLabelStyle}"
+                                       Text="History Box"
+                                       TextColor="{StaticResource BlackTextColor}" />
+                            </Grid>
+                            <pancakeControl:PancakeView.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OnViewSelection}"
+                                                      CommandParameter="historyboxes" />
+                            </pancakeControl:PancakeView.GestureRecognizers>
+                        </pancakeControl:PancakeView>
+                        <pancakeControl:PancakeView x:Name="buttonSPPActivity"
+                                                    x:FieldModifier="Public"
+                                                    IsVisible="False"
+                                                    Margin="20,10"
+                                                    BackgroundColor="White"
+                                                    CornerRadius="8"
+                                                    Elevation="5"
+                                                    FlexLayout.Order="0"
+                                                    HasShadow="False"
+                                                    IsClippedToBounds="True">
+                            <Grid Margin="15">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <ffimageloading:CachedImage Grid.Row="0"
+                                                            Aspect="AspectFit"
+                                                            DownsampleToViewSize="True"
+                                                            HorizontalOptions="Center"
+                                                            Source="ProductionLine"
+                                                            WidthRequest="200" />
+                                <Label Grid.Row="1"
+                                       Margin="0,10"
+                                       FontSize="{StaticResource LargerSize}"
+                                       HorizontalOptions="Center"
+                                       HorizontalTextAlignment="Center"
+                                       Style="{StaticResource PoppinsBoldLabelStyle}"
+                                       Text="SPP Aktivitas"
+                                       TextColor="{StaticResource BlackTextColor}" />
+                            </Grid>
+                            <pancakeControl:PancakeView.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OnViewSelection}"
+                                                      CommandParameter="sppaktivitas" />
+                            </pancakeControl:PancakeView.GestureRecognizers>
+                        </pancakeControl:PancakeView>
+                        <pancakeControl:PancakeView x:Name="buttonDEMO_Zebra"
+                                                    x:FieldModifier="Public"
+                                                    IsVisible="False"
+                                                    Margin="20,10"
+                                                    BackgroundColor="White"
+                                                    CornerRadius="8"
+                                                    Elevation="5"
+                                                    FlexLayout.Order="0"
+                                                    HasShadow="False"
+                                                    IsClippedToBounds="True">
+                            <Grid Margin="15">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <ffimageloading:CachedImage Grid.Row="0"
+                                                            Aspect="AspectFit"
+                                                            DownsampleToViewSize="True"
+                                                            HorizontalOptions="Center"
+                                                            Source="SmartHome"
+                                                            WidthRequest="200" />
+                                <Label Grid.Row="1"
+                                       Margin="0,10"
+                                       FontSize="{StaticResource LargerSize}"
+                                       HorizontalOptions="Center"
+                                       HorizontalTextAlignment="Center"
+                                       Style="{StaticResource PoppinsBoldLabelStyle}"
+                                       Text="DEMO Scanner PDA Zebra"
+                                       TextColor="{StaticResource BlackTextColor}" />
+                            </Grid>
+                            <pancakeControl:PancakeView.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OnViewSelection}"
+                                                      CommandParameter="DEMOScannerZebra" />
+                            </pancakeControl:PancakeView.GestureRecognizers>
+                        </pancakeControl:PancakeView>
+                        <pancakeControl:PancakeView x:Name="buttonDEMO_ZebraRFID"
+                                                    x:FieldModifier="Public"
+                                                    IsVisible="False"
+                                                    Margin="20,10"
+                                                    BackgroundColor="White"
+                                                    CornerRadius="8"
+                                                    Elevation="5"
+                                                    FlexLayout.Order="0"
+                                                    HasShadow="False"
+                                                    IsClippedToBounds="True">
+                            <Grid Margin="15">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <ffimageloading:CachedImage Grid.Row="0"
+                                                            Aspect="AspectFit"
+                                                            DownsampleToViewSize="True"
+                                                            HorizontalOptions="Center"
+                                                            Source="SmartHome"
+                                                            WidthRequest="200" />
+                                <Label Grid.Row="1"
+                                       Margin="0,10"
+                                       FontSize="{StaticResource LargerSize}"
+                                       HorizontalOptions="Center"
+                                       HorizontalTextAlignment="Center"
+                                       Style="{StaticResource PoppinsBoldLabelStyle}"
+                                       Text="DEMO Scanner PDA Zebra RFID"
+                                       TextColor="{StaticResource BlackTextColor}" />
+                            </Grid>
+                            <pancakeControl:PancakeView.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OnViewSelection}"
+                                                      CommandParameter="DEMOScannerZebraRFID" />
+                            </pancakeControl:PancakeView.GestureRecognizers>
+                        </pancakeControl:PancakeView>
+
+                        <pancakeControl:PancakeView x:Name="buttonCounterInjection"
+                                                    x:FieldModifier="Public"
+                                                    IsVisible="False"
+                                                    Margin="20,10"
+                                                    BackgroundColor="White"
+                                                    CornerRadius="8"
+                                                    Elevation="5"
+                                                    FlexLayout.Order="0"
+                                                    HasShadow="False"
+                                                    IsClippedToBounds="True">
+                            <Grid Margin="15">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <ffimageloading:CachedImage Grid.Row="0"
+                                                            Aspect="AspectFit"
+                                                            DownsampleToViewSize="True"
+                                                            HorizontalOptions="Center"
+                                                            Source="MiningBitcoin"
+                                                            WidthRequest="200" />
+                                <Label Grid.Row="1"
+                                       Margin="0,10"
+                                       FontSize="{StaticResource LargerSize}"
+                                       HorizontalOptions="Center"
+                                       HorizontalTextAlignment="Center"
+                                       Style="{StaticResource PoppinsBoldLabelStyle}"
+                                       Text="TRIAL Counter INJECTION"
+                                       TextColor="{StaticResource BlackTextColor}" />
+                            </Grid>
+                            <pancakeControl:PancakeView.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OnViewSelection}"
+                                                      CommandParameter="TRIALCounterInjection" />
+                            </pancakeControl:PancakeView.GestureRecognizers>
+                        </pancakeControl:PancakeView>
+                        <pancakeControl:PancakeView x:Name="buttonCounterReworkIN"
+                                                    x:FieldModifier="Public"
+                                                    IsVisible="False"
+                                                    Margin="20,10"
+                                                    BackgroundColor="White"
+                                                    CornerRadius="8"
+                                                    Elevation="5"
+                                                    FlexLayout.Order="0"
+                                                    HasShadow="False"
+                                                    IsClippedToBounds="True">
+                            <Grid Margin="15">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <ffimageloading:CachedImage Grid.Row="0"
+                                                            Aspect="AspectFit"
+                                                            DownsampleToViewSize="True"
+                                                            HorizontalOptions="Center"
+                                                            Source="RepairImage"
+                                                            WidthRequest="200" />
+                                <Label Grid.Row="1"
+                                       Margin="0,10"
+                                       FontSize="{StaticResource LargerSize}"
+                                       HorizontalOptions="Center"
+                                       HorizontalTextAlignment="Center"
+                                       Style="{StaticResource PoppinsBoldLabelStyle}"
+                                       Text="TRIAL Counter Rework IN"
+                                       TextColor="{StaticResource BlackTextColor}" />
+                            </Grid>
+                            <pancakeControl:PancakeView.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OnViewSelection}"
+                                                      CommandParameter="TRIALCounterReworkIN" />
+                            </pancakeControl:PancakeView.GestureRecognizers>
+                        </pancakeControl:PancakeView>
+                        <pancakeControl:PancakeView x:Name="buttonAddLocRework"
+                                                    x:FieldModifier="Public"
+                                                    IsVisible="False"
+                                                    Margin="20,10"
+                                                    BackgroundColor="White"
+                                                    CornerRadius="8"
+                                                    Elevation="5"
+                                                    FlexLayout.Order="0"
+                                                    HasShadow="False"
+                                                    IsClippedToBounds="True">
+                            <Grid Margin="15">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <ffimageloading:CachedImage Grid.Row="0"
+                                                            Aspect="AspectFit"
+                                                            DownsampleToViewSize="True"
+                                                            HorizontalOptions="Center"
+                                                            Source="WarehousePic1"
+                                                            WidthRequest="200" />
+                                <Label Grid.Row="1"
+                                       Margin="0,10"
+                                       FontSize="{StaticResource LargerSize}"
+                                       HorizontalOptions="Center"
+                                       HorizontalTextAlignment="Center"
+                                       Style="{StaticResource PoppinsBoldLabelStyle}"
+                                       Text="Add Item to Location Rework"
+                                       TextColor="{StaticResource BlackTextColor}" />
+                            </Grid>
+                            <pancakeControl:PancakeView.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OnViewSelection}"
+                                                      CommandParameter="ADD_LOC_REWORK" />
+                            </pancakeControl:PancakeView.GestureRecognizers>
+                        </pancakeControl:PancakeView>
+                        <pancakeControl:PancakeView x:Name="buttonQRCodeDeliveryEPSON_RFID"
+                                                    x:FieldModifier="Public"
+                                                    IsVisible="False"
+                                                    Margin="20,10"
+                                                    BackgroundColor="White"
+                                                    CornerRadius="8"
+                                                    Elevation="5"
+                                                    FlexLayout.Order="0"
+                                                    HasShadow="False"
+                                                    IsClippedToBounds="True">
+                            <Grid Margin="15">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <ffimageloading:CachedImage Grid.Row="0"
+                                                            Aspect="AspectFit"
+                                                            DownsampleToViewSize="True"
+                                                            HorizontalOptions="Center"
+                                                            Source="QRCodeGenerate"
+                                                            WidthRequest="200" />
+                                <Label Grid.Row="1"
+                                       Margin="0,10"
+                                       FontSize="{StaticResource LargerSize}"
+                                       HorizontalOptions="Center"
+                                       HorizontalTextAlignment="Center"
+                                       Style="{StaticResource PoppinsBoldLabelStyle}"
+                                       Text="QR Code Delivery EPSON RFID "
+                                       TextColor="{StaticResource BlackTextColor}" />
+                            </Grid>
+                            <pancakeControl:PancakeView.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OnViewSelection}"
+                                                      CommandParameter="QRCODE_DELIVERY_EPSON_RFID" />
+                            </pancakeControl:PancakeView.GestureRecognizers>
+                        </pancakeControl:PancakeView>
+                        <pancakeControl:PancakeView x:Name="buttonCheckerItemDelivery_RFID"
+                                                    x:FieldModifier="Public"
+                                                    IsVisible="False"
+                                                    Margin="20,10"
+                                                    BackgroundColor="White"
+                                                    CornerRadius="8"
+                                                    Elevation="5"
+                                                    FlexLayout.Order="0"
+                                                    HasShadow="False"
+                                                    IsClippedToBounds="True">
+                            <Grid Margin="15">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <ffimageloading:CachedImage Grid.Row="0"
+                                                            Aspect="AspectFit"
+                                                            DownsampleToViewSize="True"
+                                                            HorizontalOptions="Center"
+                                                            Source="LogisticAutomationPic1"
+                                                            WidthRequest="200" />
+                                <Label Grid.Row="1"
+                                       Margin="0,10"
+                                       FontSize="{StaticResource LargerSize}"
+                                       HorizontalOptions="Center"
+                                       HorizontalTextAlignment="Center"
+                                       Style="{StaticResource PoppinsBoldLabelStyle}"
+                                       Text="Checker Item Delivery RFID"
+                                       TextColor="{StaticResource BlackTextColor}" />
+                            </Grid>
+                            <pancakeControl:PancakeView.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OnViewSelection}"
+                                                      CommandParameter="CHECKER_ITEM_DELIVERY_EPSON_IN_GUDANG" />
+                            </pancakeControl:PancakeView.GestureRecognizers>
+                        </pancakeControl:PancakeView>
+                        <pancakeControl:PancakeView x:Name="buttonRFIDPairing"
+                                                    x:FieldModifier="Public"
+                                                    IsVisible="False"
+                                                    Margin="20,10"
+                                                    BackgroundColor="White"
+                                                    CornerRadius="8"
+                                                    Elevation="5"
+                                                    FlexLayout.Order="0"
+                                                    HasShadow="False"
+                                                    IsClippedToBounds="True">
+                            <Grid Margin="15">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <ffimageloading:CachedImage Grid.Row="0"
+                                                            Aspect="AspectFit"
+                                                            DownsampleToViewSize="True"
+                                                            HorizontalOptions="Center"
+                                                            Source="RFIDPic1"
+                                                            WidthRequest="200" />
+                                <Label Grid.Row="1"
+                                       Margin="0,10"
+                                       FontSize="{StaticResource LargerSize}"
+                                       HorizontalOptions="Center"
+                                       HorizontalTextAlignment="Center"
+                                       Style="{StaticResource PoppinsBoldLabelStyle}"
+                                       Text="RFID Pairing + Location"
+                                       TextColor="{StaticResource BlackTextColor}" />
+                            </Grid>
+                            <pancakeControl:PancakeView.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OnViewSelection}"
+                                                      CommandParameter="RFID_PAIRING_LOCATION" />
+                            </pancakeControl:PancakeView.GestureRecognizers>
+                        </pancakeControl:PancakeView>
+                        <pancakeControl:PancakeView x:Name="buttonSTOGudang"
+                                                    x:FieldModifier="Public"
+                                                    IsVisible="False"
+                                                    Margin="20,10"
+                                                    BackgroundColor="White"
+                                                    CornerRadius="8"
+                                                    Elevation="5"
+                                                    FlexLayout.Order="0"
+                                                    HasShadow="False"
+                                                    IsClippedToBounds="True">
+                            <Grid Margin="15">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <ffimageloading:CachedImage Grid.Row="0"
+                                                            Aspect="AspectFit"
+                                                            DownsampleToViewSize="True"
+                                                            HorizontalOptions="Center"
+                                                            Source="StockOpnamePic1.jpg"
+                                                            WidthRequest="200" />
+                                <Label Grid.Row="1"
+                                       Margin="0,10"
+                                       FontSize="{StaticResource LargerSize}"
+                                       HorizontalOptions="Center"
+                                       HorizontalTextAlignment="Center"
+                                       Style="{StaticResource PoppinsBoldLabelStyle}"
+                                       Text="STO Gudang Ready"
+                                       TextColor="{StaticResource BlackTextColor}" />
+                            </Grid>
+                            <pancakeControl:PancakeView.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OnViewSelection}"
+                                                      CommandParameter="STO_GUDANG_READY" />
+                            </pancakeControl:PancakeView.GestureRecognizers>
+                        </pancakeControl:PancakeView>
+
+                    </StackLayout>
+                </ScrollView>
+            </FlexLayout>
+
+            <ContentView AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         AbsoluteLayout.LayoutFlags="All"
+                         BackgroundColor="{StaticResource WhiteColor}"
+                         IsVisible="{Binding IsBusy}"
+                         Opacity="0.2" />
+            <ActivityIndicator AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+                               AbsoluteLayout.LayoutFlags="PositionProportional"
+                               IsRunning="{Binding IsBusy}"
+                               IsVisible="{Binding IsBusy}" />
+        </AbsoluteLayout>
+    </screens:BaseContentPage.Content>
+</screens:BaseContentPage>

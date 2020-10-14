@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<screens:BaseContentPage
+    xmlns:screens="clr-namespace:YasunliplastApp.Views.Base" xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+    mc:Ignorable="d"
+    x:Class="YasunliplastApp.Views.QCSamplingView"
+    BackgroundColor="White">
+    <screens:BaseContentPage.Resources>
+        <ResourceDictionary>
+
+            <OnPlatform
+                x:Key="HeaderSize"
+                x:TypeArguments="x:Double"
+                Android="11"
+                iOS="10" />
+
+            <Style
+                x:Key="HeaderTextStyle"
+                BasedOn="{StaticResource PoppinsRegularLabelStyle}"
+                TargetType="Label">
+                <Setter Property="FontSize" Value="{StaticResource LittleSize}" />
+                <Setter Property="TextColor" Value="{StaticResource LightGrayColor}" />
+                <Setter Property="VerticalOptions" Value="Start" />
+                <Setter Property="MaxLines" Value="1" />
+                <Setter Property="Margin">
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="Android" Value="3,5,0,0" />
+                        <On Platform="iOS" Value="0,5,0,5" />
+                    </OnPlatform>
+                </Setter>
+            </Style>
+
+            <Style
+                x:Key="EntryFieldStyle"
+                BasedOn="{StaticResource BaseEntryStyle}"
+                TargetType="{x:Type Entry}">
+                <Setter Property="FontSize" Value="{StaticResource MediumSize}" />
+
+            </Style>
+
+            <Style
+                x:Key="ScanValueTextStyle"
+                BasedOn="{StaticResource PoppinsSemiBoldLabelStyle}"
+                TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource BlackTextColor}" />
+                <Setter Property="FontSize" Value="{StaticResource MediumSize}" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="MaxLines" Value="5" />
+                <Setter Property="Margin">
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="Android" Value="3,5,0,0" />
+                        <On Platform="iOS" Value="0,5,0,5" />
+                    </OnPlatform>
+                </Setter>
+            </Style>
+
+        </ResourceDictionary>
+    </screens:BaseContentPage.Resources>
+
+
+    <screens:BaseContentPage.ToolbarItems>
+        <!--<ToolbarItem x:Name="ToolbarAdd"
+                     Text="Add"
+                     IconImageSource="Add.png"
+                     Clicked="ToolbarAdd_Clicked"
+                     Order="Primary"
+                     Priority="0"/>
+        <ToolbarItem x:Name="ToolbarView"
+                     Text="View"
+                     IconImageSource="ListDetail.png"
+                     Clicked="ToolbarView_Clicked"
+                     Order="Primary"
+                     Priority="1"/>-->
+        <ToolbarItem x:Name="ToolbarSave"
+                     Text="Save"
+                     IconImageSource="Save.png"
+                     Clicked="ToolbarSave_Clicked"
+                     Order="Primary"
+                     Priority="2"/>
+
+    </screens:BaseContentPage.ToolbarItems>
+
+
+    <screens:BaseContentPage.Content>
+        <AbsoluteLayout>
+            <ScrollView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+                <Grid RowSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackLayout
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Margin="20,20,20,10"
+                        Orientation="Vertical"
+                        VerticalOptions="FillAndExpand">
+                        <Label Style="{StaticResource HeaderTextStyle}" Text="Barcode Result"/>
+                        <Label x:Name="textbox_ScanResult" Style="{StaticResource ScanValueTextStyle}" />
+                        <Button x:Name="Button_ScanBarcodeSampling"
+                                Margin="0,10"
+                                BackgroundColor="Green"
+                                Clicked="Button_ScanBarcodeSampling_Clicked"
+                                FontSize="{StaticResource LargeSize}"
+                                Text="SCAN"
+                                TextColor="{StaticResource WhiteColor}"/>
+                        <Label Style="{StaticResource HeaderTextStyle}" Text="Judgement"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Switch x:Name="SwitchNG" Margin="0,20" Toggled="SwitchNG_Toggled" IsToggled="False" WidthRequest="60" HorizontalOptions="Start"/>
+                            <Label x:Name="textbox_NG" Text="NG" Style="{StaticResource ScanValueTextStyle}" TextColor="Red" FontSize="Large"/>
+                            <combobox:SfComboBox x:Name="Combobox_NG_SFusion"
+                                                 MultiSelectMode="Token"
+                                                 IsSelectedItemsVisibleInDropDown="False"
+                                                 TextColor="Black"
+                                                 WidthRequest="200"
+                                                 HorizontalOptions="EndAndExpand"
+                                                 IsVisible="True"
+                                                 ClearButtonColor="Red"
+                                                 DropDownItemHeight="50"
+
+                                                 Watermark="--Enter Category NG--"
+                                                 WatermarkColor="Red"
+
+                                                 IsEditableMode="True"
+                                                 AllowFiltering="true"
+                                                 TextHighlightMode="MultipleOccurrence"
+                                                 HighlightedTextColor="Red"
+                                                 HighlightedTextFontAttributes="Bold"
+                                                 SuggestionMode="Contains">
+                            </combobox:SfComboBox>
+                        </StackLayout>
+                        <!--<Label Style="{StaticResource HeaderTextStyle}" Text="No Dokumen"/>-->
+                        <!--<Picker x:Name="Combobox_DokNo" Title="$$Select Document Number$$" FontSize="{StaticResource LargeSize}" TextColor="{StaticResource BlackColor}"/>-->
+                        <Label Style="{StaticResource HeaderTextStyle}" Text="Barcode ID"/>
+                        <Label x:Name="textbox_BarcodeID" Style="{StaticResource ScanValueTextStyle}" />
+                        <Label Style="{StaticResource HeaderTextStyle}" Text="Item ID"/>
+                        <Label x:Name="textbox_ItemID" Style="{StaticResource ScanValueTextStyle}" />
+                        <Label Style="{StaticResource HeaderTextStyle}" Text="Item Name"/>
+                        <Label x:Name="textbox_ItemName" Style="{StaticResource ScanValueTextStyle}" />
+                        <Label Style="{StaticResource HeaderTextStyle}" Text="Operator 1"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Label x:Name="textbox_Operator1NPK" Style="{StaticResource ScanValueTextStyle}" />
+                            <Label x:Name="textbox_Operator1Name" Style="{StaticResource ScanValueTextStyle}" />
+                        </StackLayout>
+
+                        <Label Style="{StaticResource HeaderTextStyle}" Text="Operator 2"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Label x:Name="textbox_Operator2NPK" Style="{StaticResource ScanValueTextStyle}" />
+                            <Label x:Name="textbox_Operator2Name" Style="{StaticResource ScanValueTextStyle}" />
+                        </StackLayout>
+                        <Label Style="{StaticResource HeaderTextStyle}" Text="Operator 3"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Label x:Name="textbox_Operator3NPK" Style="{StaticResource ScanValueTextStyle}" />
+                            <Label x:Name="textbox_Operator3Name" Style="{StaticResource ScanValueTextStyle}" />
+                        </StackLayout>
+                        <Label Style="{StaticResource HeaderTextStyle}" Text="Operator 4"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Label x:Name="textbox_Operator4NPK" Style="{StaticResource ScanValueTextStyle}" />
+                            <Label x:Name="textbox_Operator4Name" Style="{StaticResource ScanValueTextStyle}" />
+                        </StackLayout>
+                        <Label Style="{StaticResource HeaderTextStyle}" Text="Detail"/>
+                        <Entry x:Name="EntryDetail"
+                               FontAttributes="Bold"
+                               FontFamily="{StaticResource PoppinsRegular}"
+                               FontSize="Large"/>
+
+                        <!--<dxGrid:GridControl
+                        x:Name="GridControlItemSampling"
+                        AllowEditRows="False"
+                        AllowGroup="False"
+                        AllowGroupCollapse="False"
+                        AllowSort="False"
+                        AutoFilterPanelVisibility="False"
+                        AutoGenerateColumnsMode="None"
+                        IsColumnChooserEnabled="True"
+                        NewItemRowVisibility="False"
+                        AllowDeleteRows="False"
+
+                        >
+                            <dxGrid:GridControl.Columns>
+                                <dxGrid:TextColumn Caption="Barcode" FieldName="BARCODE" FixedStyle="Left" MinWidth="150"/>
+                                <dxGrid:TextColumn Caption="Item ID" FieldName="ITEM_ID" MinWidth="150"/>
+                                <dxGrid:TextColumn Caption="Item Name" FieldName="ITEM_NAME" MinWidth="150"/>
+                                <dxGrid:TextColumn Caption="NPK" FieldName="NPK" MinWidth="150"/>
+                                <dxGrid:TextColumn Caption="Employee Name" FieldName="EmployeeName" MinWidth="150"/>
+                                <dxGrid:TextColumn Caption="Scan Date" FieldName="ScanDate" MinWidth="150"/>
+                                <dxGrid:TextColumn Caption="Detail" FieldName="Detail" MinWidth="150"/>
+                                <dxGrid:TextColumn Caption="Judgement" FieldName="Judgement" MinWidth="50"/>
+                                <dxGrid:TextColumn Caption="Operator 1" FieldName="Operator1" MinWidth="150"/>
+                                <dxGrid:TextColumn Caption="Operator 2" FieldName="Operator2" MinWidth="150"/>
+                                <dxGrid:TextColumn Caption="Operator 3" FieldName="Operator3" MinWidth="150"/>
+                                <dxGrid:TextColumn Caption="Operator 4" FieldName="Operator4" MinWidth="150"/>
+                                <dxGrid:TextColumn Caption="Criteria" FieldName="Criteria" MinWidth="150"/>
+
+
+                            </dxGrid:GridControl.Columns>
+                        </dxGrid:GridControl>-->
+
+
+                    </StackLayout>
+
+                </Grid>
+            </ScrollView>
+
+            <ContentView
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All"
+                BackgroundColor="{StaticResource LoaderBackColor}"
+                IsVisible="{Binding IsBusy}"
+                Opacity="0.2" />
+            <ActivityIndicator
+                AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                IsRunning="{Binding IsBusy}"
+                IsVisible="{Binding IsBusy}" />
+        </AbsoluteLayout>
+    </screens:BaseContentPage.Content>
+
+</screens:BaseContentPage>

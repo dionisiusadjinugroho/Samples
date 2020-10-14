@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<screens:BaseContentPage
+    xmlns:screens="clr-namespace:YasunliplastApp.Views.Base"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:dxGrid="clr-namespace:DevExpress.Mobile.DataGrid;assembly=DevExpress.Mobile.Grid.v18.2"
+    xmlns:SyncFusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms"
+    mc:Ignorable="d"
+    x:Class="YasunliplastApp.Views.QCSamplingDetailView"
+    BackgroundColor="White">
+    <screens:BaseContentPage.Content>
+        <Grid RowSpacing="0">
+            <StackLayout
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="20,20,20,10"
+                Orientation="Vertical"
+                VerticalOptions="FillAndExpand">
+
+                <!--<dxGrid:GridControl
+                        VerticalOptions="StartAndExpand"
+                        x:Name="GridControlItemSampling"
+                        AllowEditRows="False"
+                        AllowGroup="False"
+                        AllowGroupCollapse="False"
+                        AllowSort="False"
+                        AutoFilterPanelVisibility="False"
+                        AutoGenerateColumnsMode="None"
+                        IsColumnChooserEnabled="True"
+                        NewItemRowVisibility="False"
+                        AllowDeleteRows="False"
+                        AllowResizeColumns="True"
+                        AllowHorizontalScrollingVirtualization="True"
+                        >
+                    <dxGrid:GridControl.Columns>
+                        <dxGrid:TextColumn Caption="Barcode" FieldName="BARCODE" FixedStyle="Left" MinWidth="150"/>
+                        <dxGrid:TextColumn Caption="Item ID" FieldName="ITEM_ID" MinWidth="150"/>
+                        <dxGrid:TextColumn Caption="Item Name" FieldName="ITEM_NAME" MinWidth="150"/>
+                        <dxGrid:TextColumn Caption="NPK" FieldName="NPK" MinWidth="150"/>
+                        <dxGrid:TextColumn Caption="Employee Name" FieldName="EmployeeName" MinWidth="150"/>
+                        <dxGrid:TextColumn Caption="Scan Date" FieldName="ScanDate" MinWidth="150"/>
+                        <dxGrid:TextColumn Caption="Detail" FieldName="Detail" MinWidth="150"/>
+                        <dxGrid:TextColumn Caption="Judgement" FieldName="Judgement" MinWidth="50"/>
+                        <dxGrid:TextColumn Caption="Operator 1" FieldName="Operator1" MinWidth="150"/>
+                        <dxGrid:TextColumn Caption="Operator 2" FieldName="Operator2" MinWidth="150"/>
+                        <dxGrid:TextColumn Caption="Operator 3" FieldName="Operator3" MinWidth="150"/>
+                        <dxGrid:TextColumn Caption="Operator 4" FieldName="Operator4" MinWidth="150"/>
+                        <dxGrid:TextColumn Caption="Criteria" FieldName="Criteria" MinWidth="150"/>
+
+
+                    </dxGrid:GridControl.Columns>
+                </dxGrid:GridControl>-->
+                <SyncFusion:SfDataGrid x:Name="DataGridSF_SamplingDetail"
+                                       AllowSorting="True"
+                                       AllowTriStateSorting="True"
+                                       AllowEditing="True"
+                                       AllowMultiSorting="True"
+                                       VerticalOverScrollMode="None"
+                                       AllowDraggingRow="True"
+                                       AllowDraggingColumn="True"
+                                       SelectionMode="Single"
+                                       ColumnSizer="Star"
+                                       AutoGenerateColumns="False">
+                    <SyncFusion:SfDataGrid.Columns>
+                        <SyncFusion:GridTextColumn HeaderText="Barcode" MappingName="BARCODE" MinimumWidth="100"/>
+                        <SyncFusion:GridTextColumn HeaderText="Item ID" MappingName="ITEM_ID" MinimumWidth="100"/>
+                        <SyncFusion:GridTextColumn HeaderText="Item Name" MappingName="ITEM_NAME" MinimumWidth="100"/>
+                        <SyncFusion:GridTextColumn HeaderText="NPK" MappingName="NPK" MinimumWidth="100"/>
+                        <SyncFusion:GridTextColumn HeaderText="Employee Name" MappingName="EmployeeName" MinimumWidth="100"/>
+                        <SyncFusion:GridTextColumn HeaderText="Scan Date" MappingName="ScanDate" MinimumWidth="100"/>
+                        <SyncFusion:GridTextColumn HeaderText="Detail" MappingName="Detail" MinimumWidth="100"/>
+                        <SyncFusion:GridTextColumn HeaderText="Judgement" MappingName="Judgement" MinimumWidth="100"/>
+                        <SyncFusion:GridTextColumn HeaderText="Operator 1" MappingName="Operator1" MinimumWidth="100"/>
+                        <SyncFusion:GridTextColumn HeaderText="Operator 2" MappingName="Operator2" MinimumWidth="100"/>
+                        <SyncFusion:GridTextColumn HeaderText="Operator 3" MappingName="Operator3" MinimumWidth="100"/>
+                        <SyncFusion:GridTextColumn HeaderText="Operator 4" MappingName="Operator4" MinimumWidth="100"/>
+                        <SyncFusion:GridTextColumn HeaderText="Criteria" MappingName="Criteria" MinimumWidth="100"/>
+                    </SyncFusion:SfDataGrid.Columns>
+                </SyncFusion:SfDataGrid>
+            </StackLayout>
+        </Grid>
+
+    </screens:BaseContentPage.Content>
+</screens:BaseContentPage>

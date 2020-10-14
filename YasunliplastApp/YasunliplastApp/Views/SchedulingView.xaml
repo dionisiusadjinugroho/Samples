@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<screens:BaseContentPage
+    x:Class="YasunliplastApp.Views.SchedulingView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:backdrop="clr-namespace:Syncfusion.XForms.Backdrop;assembly=Syncfusion.SfBackdrop.XForms"
+    xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+    xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:datetimepicker="clr-namespace:YasunliplastApp.Utils"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:screens="clr-namespace:YasunliplastApp.Views.Base"
+    xmlns:SyncFusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms"
+    xmlns:SFpicker="clr-namespace:Syncfusion.SfPicker.XForms;assembly=Syncfusion.SfPicker.XForms"
+    xmlns:syncfusionListView="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+    xmlns:syncfusionPtRefresh="clr-namespace:Syncfusion.SfPullToRefresh.XForms;assembly=Syncfusion.SfPullToRefresh.XForms"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    mc:Ignorable="d"
+    BackgroundColor="White">
+
+    <screens:BaseContentPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform
+                x:Key="HeaderSize"
+                Android="11"
+                iOS="10"
+                x:TypeArguments="x:Double" />
+            <Style
+                x:Key="HeaderTextStyle"
+                BasedOn="{StaticResource PoppinsRegularLabelStyle}"
+                TargetType="Label">
+                <Setter Property="FontSize" Value="{StaticResource LittleSize}" />
+                <Setter Property="TextColor" Value="{StaticResource LightGrayColor}" />
+                <Setter Property="VerticalOptions" Value="Start" />
+                <Setter Property="MaxLines" Value="1" />
+                <Setter Property="Margin">
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Value="3,5,0,0" Platform="Android" />
+                        <On Value="0,5,0,5" Platform="iOS" />
+                    </OnPlatform>
+                </Setter>
+            </Style>
+            <Style
+                x:Key="EntryFieldStyle"
+                BasedOn="{StaticResource BaseEntryStyle}"
+                TargetType="{x:Type Entry}">
+                <Setter Property="FontSize" Value="{StaticResource MediumSize}" />
+            </Style>
+            <Style
+                x:Key="ScanValueTextStyle"
+                BasedOn="{StaticResource PoppinsSemiBoldLabelStyle}"
+                TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource BlackTextColor}" />
+                <Setter Property="FontSize" Value="{StaticResource MediumSize}" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="MaxLines" Value="5" />
+                <Setter Property="Margin">
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Value="3,5,0,0" Platform="Android" />
+                        <On Value="0,5,0,5" Platform="iOS" />
+                    </OnPlatform>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </screens:BaseContentPage.Resources>
+    <screens:BaseContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <StackLayout Padding="5">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="80"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="250"/>
+                            <ColumnDefinition Width="180"/>
+                        </Grid.ColumnDefinitions>
+                        <StackLayout Grid.Column="0" Margin="20,10,20,10" Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                            <combobox:SfComboBox
+                        x:Name="Combobox_Division" 
+                        AllowFiltering="true"
+                        ClearButtonColor="Red"
+                        DropDownItemHeight="50"
+                        HighlightedTextColor="Red"
+                        HighlightedTextFontAttributes="Bold"
+                        HorizontalOptions="FillAndExpand"
+                        IsEditableMode="False"
+                        IsSelectedItemsVisibleInDropDown="False"
+                        IsVisible="True"
+                        MultiSelectMode="None"
+                        SuggestionMode="Contains"
+                        TextColor="Black"
+                        TextHighlightMode="MultipleOccurrence"
+                        ValueChanged="Combobox_Division_ValueChanged"
+                        Watermark="-- Enter Division --"
+                        WatermarkColor="Black" />
+                            <!--<Label
+                        x:Name="labelTotal"
+                        FontFamily="poppins"
+                        FontSize="22"
+                        Text="TOTAL : "
+                        TextColor="White" />-->
+                        </StackLayout>
+                        <StackLayout x:Name="ymy" Grid.Column="2" Padding="10" HorizontalOptions="Start" VerticalOptions="Center">
+                            <yummy:PancakeView
+                            HeightRequest="50" HorizontalOptions="Center"
+                            Padding="10" VerticalOptions="Center"
+                            BackgroundColor="White"
+                            BorderThickness="1"
+                            CornerRadius="250"
+                            Elevation="3">
+                                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                <Image Source="left" Aspect="AspectFit" WidthRequest="50" x:Name="previous">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="Previous_Clicked"
+                                                                 NumberOfTapsRequired="1"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                </StackLayout>
+                            </yummy:PancakeView>
+                        </StackLayout>
+                    <StackLayout x:Name="ymy1" Grid.Column="2" Padding="10" HorizontalOptions="End" VerticalOptions="Center">
+                            <yummy:PancakeView 
+                            HeightRequest="50" HorizontalOptions="End"
+                            Padding="10" VerticalOptions="Center"
+                            BackgroundColor="White"
+                            BorderThickness="1"
+                            CornerRadius="250"
+                            Elevation="3">
+                                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Image Source="right" Aspect="AspectFit" WidthRequest="50" x:Name="next">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="Next_Clicked"
+                                                                 NumberOfTapsRequired="1"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                </StackLayout>
+                            </yummy:PancakeView>
+                        </StackLayout>
+                        <StackLayout Padding="10" Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" WidthRequest="50">
+                        <yummy:PancakeView CornerRadius="15" BorderThickness="1"  Elevation="3">
+                                <Button Text="SUBMIT"  FontAttributes="Bold" FontSize="18" TextColor="Black" Clicked="Submit_Clicked"
+                                BackgroundColor="White" VerticalOptions="Center"/>
+                            </yummy:PancakeView>
+                        </StackLayout>
+                    </Grid>
+                </StackLayout>
+            <ScrollView>
+                <StackLayout
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand">
+                    <Grid RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <StackLayout
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Margin="10,10,10,10"
+                            HorizontalOptions="FillAndExpand"
+                            Orientation="Vertical"
+                            VerticalOptions="FillAndExpand">
+                            <datetimepicker:CustomTimePicker
+                                x:Name="customTimePicker"
+                                ColumnHeaderHeight="40"
+                                HorizontalOptions="Center"
+                                OkButtonClicked="TimePicker_OkButtonClicked"
+                                PickerHeight="400"
+                                PickerMode="Dialog"
+                                PickerWidth="300"
+                                SelectedItem="{Binding SelectedTime,Mode=TwoWay}"
+                                VerticalOptions="Center" />
+
+                            <SFpicker:SfPicker
+                                x:Name='numberpicker' ShowFooter="True"
+                                HeaderText="Pilih Lembur (Jam)"
+                                ItemsSource="{Binding numbers}"                                
+                                PickerMode="Dialog"
+                                OkButtonClicked="NumberPicker_OK"/>
+
+
+                            <SyncFusion:SfDataGrid
+                                x:Name="DataGridSF_Scheduling"
+                                AllowDraggingColumn="True"
+                                AllowDraggingRow="True"
+                                AllowEditing="True"
+                                AllowMultiSorting="True"
+                                AllowSorting="True"
+                                AllowTriStateSorting="True"
+                                AutoGenerateColumns="False"
+                                AllowPullToRefresh="True"
+                                ColumnSizer="Auto"
+                                GridTapped="DataGridSF_Scheduling_GridTapped"
+                                HorizontalOptions="FillAndExpand"
+                                ImeOptions="NoExtractUi"
+                                ItemsSource="{Binding schedulings}"
+                                NavigationMode="Cell"
+                                EditTapAction="OnTap"
+                                SelectionMode="Single"
+                                VerticalOptions="FillAndExpand"
+                                RowHeight="50">
+                                <SyncFusion:SfDataGrid.Columns>
+                                    <SyncFusion:GridTextColumn
+                                        AllowEditing="False"
+                                        HeaderText="NPK"
+                                        MappingName="NPK"
+                                        MinimumWidth="80" />
+                                    <SyncFusion:GridTextColumn
+                                        AllowEditing="False"
+                                        HeaderText="Nama"
+                                        MappingName="Nama"
+                                        MinimumWidth="80" />
+                                    <!--<SyncFusion:GridTemplateColumn MappingName="Masuk" MinimumWidth="100">
+                                        <SyncFusion:GridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <Button Text="{Binding Masuk}" Clicked="ButtonMasuk_Clicked"/>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </SyncFusion:GridTemplateColumn.CellTemplate>
+                                    </SyncFusion:GridTemplateColumn>-->
+                                    <SyncFusion:GridTextColumn AllowEditing="False"
+                                        HeaderText="Masuk"
+                                        MappingName="Masuk"
+                                        MinimumWidth="80" />
+                                    <SyncFusion:GridTextColumn AllowEditing="False"
+                                        HeaderText="Pulang"
+                                        MappingName="Pulang"
+                                        MinimumWidth="80" />
+                                    <SyncFusion:GridTextColumn AllowEditing="False"
+                                        HeaderText="Masuk Aktual"
+                                        MappingName="MasukAktual"
+                                        MinimumWidth="80" />
+                                    <SyncFusion:GridTextColumn AllowEditing="False"
+                                        HeaderText="Pulang Aktual"
+                                        MappingName="PulangAktual"
+                                        MinimumWidth="80" />
+                                    <SyncFusion:GridTextColumn
+                                        HeaderText="Jumlah Lembur" AllowEditing="False"
+                                        MappingName="JumlahLembur"
+                                        MinimumWidth="80" />
+                                    <SyncFusion:GridTextColumn
+                                        HeaderText="Jumlah Lembur Aktual"
+                                        MappingName="JumlahLemburAktual"
+                                        MinimumWidth="80" />
+                                    <SyncFusion:GridTextColumn
+                                        HeaderText="Keterangan"
+                                        MappingName="Keterangan"
+                                        MinimumWidth="80" />
+                                    <SyncFusion:GridTextColumn
+                                        HeaderText="Approved By"
+                                        MappingName="ApproveBy"
+                                        MinimumWidth="80"/>
+                                </SyncFusion:SfDataGrid.Columns>
+                            </SyncFusion:SfDataGrid>
+                        </StackLayout>
+                    </Grid>
+                    <ContentView
+                        AbsoluteLayout.LayoutBounds="0,0,1,1"
+                        AbsoluteLayout.LayoutFlags="All"
+                        BackgroundColor="{StaticResource LoaderBackColor}"
+                        IsVisible="{Binding IsBusy}"
+                        Opacity="0.2" />
+                    <ActivityIndicator
+                        AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+                        AbsoluteLayout.LayoutFlags="PositionProportional"
+                        IsRunning="{Binding IsBusy}"
+                        IsVisible="{Binding IsBusy}" />
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </screens:BaseContentPage.Content>
+</screens:BaseContentPage>

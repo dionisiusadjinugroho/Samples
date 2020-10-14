@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<screens:BaseContentPage
+    xmlns:screens="clr-namespace:YasunliplastApp.Views.Base"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pancakeControl="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    mc:Ignorable="d"
+    x:Class="YasunliplastApp.Views.SelectPlantView"
+    BackgroundColor="White">
+    <screens:BaseContentPage.Content>
+        <AbsoluteLayout>
+            <FlexLayout
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All"
+                Direction="Column"
+                JustifyContent="Center">
+                <pancakeControl:PancakeView
+                    Margin="20,10"
+                    BackgroundColor="White"
+                    CornerRadius="8"
+                    Elevation="5"
+                    FlexLayout.Order="0"
+                    HasShadow="False"
+                    IsClippedToBounds="True">
+                    <Grid Margin="15">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <ffimageloading:CachedImage
+                            Grid.Row="0"
+                            Aspect="AspectFit"
+                            DownsampleToViewSize="True"
+                            HorizontalOptions="Center"
+                            Source="SmartFactory"
+                            WidthRequest="100" />
+                        <Label
+                            Grid.Row="1"
+                            Margin="0,10"
+                            FontSize="{StaticResource LargerSize}"
+                            HorizontalOptions="Center"
+                            HorizontalTextAlignment="Center"
+                            Style="{StaticResource PoppinsBoldLabelStyle}"
+                            Text="PLANT 1"
+                            TextColor="{StaticResource BlackTextColor}" />
+                    </Grid>
+                    <pancakeControl:PancakeView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OnViewSelection}" CommandParameter="homeviewP1" />
+                    </pancakeControl:PancakeView.GestureRecognizers>
+                </pancakeControl:PancakeView>
+
+                <pancakeControl:PancakeView
+                    Margin="20,10"
+                    BackgroundColor="White"
+                    CornerRadius="8"
+                    Elevation="5"
+                    FlexLayout.Order="0"
+                    HasShadow="False"
+                    IsClippedToBounds="True">
+                    <Grid Margin="15">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <ffimageloading:CachedImage
+                            Grid.Row="0"
+                            Aspect="AspectFit"
+                            DownsampleToViewSize="True"
+                            HorizontalOptions="Center"
+                            Source="SmartFactory"
+                            WidthRequest="100" />
+                        <Label
+                            Grid.Row="1"
+                            Margin="0,10"
+                            FontSize="{StaticResource LargerSize}"
+                            HorizontalOptions="Center"
+                            HorizontalTextAlignment="Center"
+                            Style="{StaticResource PoppinsBoldLabelStyle}"
+                            Text="PLANT 2"
+                            TextColor="{StaticResource BlackTextColor}" />
+                    </Grid>
+                    <pancakeControl:PancakeView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OnViewSelection}" CommandParameter="homeviewP2" />
+                    </pancakeControl:PancakeView.GestureRecognizers>
+                </pancakeControl:PancakeView>
+
+                <pancakeControl:PancakeView
+                    Margin="20,10"
+                    BackgroundColor="White"
+                    CornerRadius="8"
+                    Elevation="5"
+                    FlexLayout.Order="0"
+                    HasShadow="False"
+                    IsClippedToBounds="True">
+                    <Grid Margin="15">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <ffimageloading:CachedImage
+                            Grid.Row="0"
+                            Aspect="AspectFit"
+                            DownsampleToViewSize="True"
+                            HorizontalOptions="Center"
+                            Source="SmartFactory"
+                            WidthRequest="100" />
+                        <Label
+                            Grid.Row="1"
+                            Margin="0,10"
+                            FontSize="{StaticResource LargerSize}"
+                            HorizontalOptions="Center"
+                            HorizontalTextAlignment="Center"
+                            Style="{StaticResource PoppinsBoldLabelStyle}"
+                            Text="PLANT 3"
+                            TextColor="{StaticResource BlackTextColor}" />
+                    </Grid>
+                    <pancakeControl:PancakeView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OnViewSelection}" CommandParameter="homeviewP3" />
+                    </pancakeControl:PancakeView.GestureRecognizers>
+                </pancakeControl:PancakeView>
+
+            </FlexLayout>
+        </AbsoluteLayout>
+    </screens:BaseContentPage.Content>
+</screens:BaseContentPage>

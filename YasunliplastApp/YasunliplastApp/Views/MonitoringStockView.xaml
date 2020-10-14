@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<backdrop:SfBackdropPage
+    x:Class="YasunliplastApp.Views.MonitoringStockView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:backdrop="clr-namespace:Syncfusion.XForms.Backdrop;assembly=Syncfusion.SfBackdrop.XForms"
+    xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+    xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:screens="clr-namespace:YasunliplastApp.Views.Base"
+    xmlns:syncfusionListView="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+    xmlns:syncfusionPtRefresh="clr-namespace:Syncfusion.SfPullToRefresh.XForms;assembly=Syncfusion.SfPullToRefresh.XForms"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    mc:Ignorable="d"
+    BackgroundColor="White"
+    BackLayerRevealOption="Auto"
+    BackLayerStateChanged="SfBackdropPage_BackLayerStateChanged"
+    IsBackLayerRevealed="True">
+
+    <backdrop:SfBackdropPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform
+                x:Key="HeaderSize"
+                Android="11"
+                iOS="10"
+                x:TypeArguments="x:Double" />
+            <Style
+                x:Key="HeaderTextStyle"
+                BasedOn="{StaticResource PoppinsRegularLabelStyle}"
+                TargetType="Label">
+                <Setter Property="FontSize" Value="{StaticResource LittleSize}" />
+                <Setter Property="TextColor" Value="{StaticResource LightGrayColor}" />
+                <Setter Property="VerticalOptions" Value="Start" />
+                <Setter Property="MaxLines" Value="1" />
+                <Setter Property="Margin">
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Value="3,5,0,0" Platform="Android" />
+                        <On Value="0,5,0,5" Platform="iOS" />
+                    </OnPlatform>
+                </Setter>
+            </Style>
+            <Style
+                x:Key="EntryFieldStyle"
+                BasedOn="{StaticResource BaseEntryStyle}"
+                TargetType="{x:Type Entry}">
+                <Setter Property="FontSize" Value="{StaticResource MediumSize}" />
+            </Style>
+            <Style
+                x:Key="ScanValueTextStyle"
+                BasedOn="{StaticResource PoppinsSemiBoldLabelStyle}"
+                TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource BlackTextColor}" />
+                <Setter Property="FontSize" Value="{StaticResource MediumSize}" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="MaxLines" Value="5" />
+                <Setter Property="Margin">
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Value="3,5,0,0" Platform="Android" />
+                        <On Value="0,5,0,5" Platform="iOS" />
+                    </OnPlatform>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </backdrop:SfBackdropPage.Resources>
+
+    <backdrop:SfBackdropPage.BackLayer>
+        <backdrop:BackdropBackLayer>
+            <StackLayout>
+                <StackLayout Margin="20,10,20,10" Spacing="10">
+                    <Label
+                        FontFamily="poppins"
+                        FontSize="22"
+                        Text="Item ID"
+                        TextColor="White" />
+                    <combobox:SfComboBox
+                        x:Name="Combobox_SearchItem"
+                        AllowFiltering="true"
+                        ClearButtonColor="Red"
+                        DropDownItemHeight="50"
+                        HighlightedTextColor="Red"
+                        HighlightedTextFontAttributes="Bold"
+                        HorizontalOptions="FillAndExpand"
+                        IsEditableMode="True"
+                        IsSelectedItemsVisibleInDropDown="False"
+                        IsVisible="True"
+                        MultiSelectMode="None"
+                        SuggestionMode="Contains"
+                        TextColor="White"
+                        TextHighlightMode="MultipleOccurrence"
+                        Watermark="-- Enter Item --"
+                        WatermarkColor="White" />
+                    <Label
+                        FontFamily="poppins"
+                        FontSize="22"
+                        Text="Position"
+                        TextColor="White" />
+                    <combobox:SfComboBox
+                        x:Name="Combobox_Position"
+                        AllowFiltering="true"
+                        ClearButtonColor="Red"
+                        DropDownItemHeight="50"
+                        HighlightedTextColor="Red"
+                        HighlightedTextFontAttributes="Bold"
+                        HorizontalOptions="FillAndExpand"
+                        IsEditableMode="True"
+                        IsSelectedItemsVisibleInDropDown="False"
+                        IsVisible="True"
+                        MultiSelectMode="None"
+                        SuggestionMode="Contains"
+                        TextColor="White"
+                        TextHighlightMode="MultipleOccurrence"
+                        Watermark="-- Enter Position --"
+                        WatermarkColor="White" />
+                    <Label
+                        x:Name="labelTotal"
+                        FontFamily="poppins"
+                        FontSize="22"
+                        Text="TOTAL : "
+                        TextColor="White" />
+                </StackLayout>
+            </StackLayout>
+        </backdrop:BackdropBackLayer>
+    </backdrop:SfBackdropPage.BackLayer>
+
+    <backdrop:SfBackdropPage.FrontLayer>
+        <backdrop:BackdropFrontLayer>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <busyindicator:SfBusyIndicator
+                    x:Name="busyindicator"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    AnimationType="Ball"
+                    EnableAnimation="True"
+                    IsBusy="False"
+                    TextColor="Red"
+                    Title="Loading..."
+                    ViewBoxHeight="150"
+                    ViewBoxWidth = "150" />
+                <AbsoluteLayout
+                    Grid.Row="0"
+                    Grid.RowSpan="10"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3">
+                    <syncfusionPtRefresh:SfPullToRefresh
+                        x:Name="sfPullToRefresh"
+                        IsRefreshing="False"
+                        PullingThreshold="100"
+                        RefreshContentHeight="70"
+                        RefreshContentThreshold="0"
+                        RefreshContentWidth="70"
+                        TransitionMode="SlideOnTop">
+                        <syncfusionPtRefresh:SfPullToRefresh.PullableContent>
+                            <ScrollView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+                                <Grid RowSpacing="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        Margin="10,10,10,10"
+                                        Orientation="Vertical"
+                                        VerticalOptions="FillAndExpand">
+                                        <SearchBar
+                                            x:Name="filterText"
+                                            Grid.Row="0"
+                                            Grid.Column="0"
+                                            IsVisible="true"
+                                            Placeholder="Search here to filter"
+                                            TextChanged="filterText_TextChanged" />
+                                        <syncfusionListView:SfListView
+                                            x:Name="sfListView"
+                                            ItemSize="150"
+                                            ItemSpacing="5"
+                                            ItemsSource="{Binding monitoringstocks}"
+                                            SelectionMode="None">
+                                            <syncfusionListView:SfListView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Frame
+                                                        Margin="1"
+                                                        CornerRadius="15"
+                                                        HasShadow="True"
+                                                        Padding="3">
+                                                        <Grid
+                                                            Margin="3,3,3,3"
+                                                            HorizontalOptions="FillAndExpand"
+                                                            Padding="3"
+                                                            RowSpacing="3"
+                                                            VerticalOptions="FillAndExpand">
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition Height="*" />
+                                                                <RowDefinition Height="*" />
+                                                                <RowDefinition Height="*" />
+                                                                <RowDefinition Height="*" />
+                                                                <RowDefinition Height="*" />
+                                                            </Grid.RowDefinitions>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="50" />
+                                                                <ColumnDefinition Width="180" />
+                                                                <ColumnDefinition Width="*" />
+                                                            </Grid.ColumnDefinitions>
+                                                            <Image
+                                                                Grid.Row="0"
+                                                                Grid.RowSpan="5"
+                                                                Grid.Column="0"
+                                                                HorizontalOptions="FillAndExpand"
+                                                                Source="ItemSampling.png"
+                                                                VerticalOptions="FillAndExpand" />
+                                                            <Label
+                                                                Grid.Row="0"
+                                                                Grid.Column="1"
+                                                                FontSize="Micro"
+                                                                Style="{StaticResource ScanValueTextStyle}"
+                                                                Text="{Binding ItemName}"
+                                                                TextColor="{Binding Color}" />
+                                                            <Label
+                                                                Grid.Row="1"
+                                                                Grid.Column="1"
+                                                                FontSize="Micro"
+                                                                Style="{StaticResource ScanValueTextStyle}"
+                                                                Text="{Binding ItemCode}"
+                                                                TextColor="{Binding Color}" />
+                                                            <Label
+                                                                Grid.Row="2"
+                                                                Grid.Column="1"
+                                                                FontSize="Micro"
+                                                                Style="{StaticResource ScanValueTextStyle}"
+                                                                Text="{Binding PackageID}"
+                                                                TextColor="{Binding Color}" />
+                                                            <Label
+                                                                Grid.Row="3"
+                                                                Grid.Column="1"
+                                                                FontSize="Micro"
+                                                                Style="{StaticResource ScanValueTextStyle}"
+                                                                Text="{Binding BoxType}"
+                                                                TextColor="{Binding Color}" />
+                                                            <Label
+                                                                Grid.Row="4"
+                                                                Grid.Column="1"
+                                                                FontSize="Micro"
+                                                                Style="{StaticResource ScanValueTextStyle}"
+                                                                Text="{Binding CustomerName}"
+                                                                TextColor="{Binding Color}" />
+                                                            <Label
+                                                                Grid.Row="0"
+                                                                Grid.Column="2"
+                                                                FontSize="Micro"
+                                                                Style="{StaticResource ScanValueTextStyle}"
+                                                                Text="{Binding MainModel}"
+                                                                TextColor="{Binding Color}" />
+                                                            <Label
+                                                                Grid.Row="1"
+                                                                Grid.Column="2"
+                                                                FontSize="Micro"
+                                                                Style="{StaticResource ScanValueTextStyle}"
+                                                                Text="{Binding Location}"
+                                                                TextColor="{Binding Color}" />
+                                                            <Label
+                                                                Grid.Row="2"
+                                                                Grid.Column="2"
+                                                                FontSize="Micro"
+                                                                Style="{StaticResource ScanValueTextStyle}"
+                                                                Text="{Binding QTY}"
+                                                                TextColor="{Binding Color}" />
+                                                            <Label
+                                                                Grid.Row="3"
+                                                                Grid.Column="2"
+                                                                FontSize="Micro"
+                                                                Style="{StaticResource ScanValueTextStyle}"
+                                                                Text="{Binding Judge}"
+                                                                TextColor="{Binding Color}" />
+                                                            <Label
+                                                                Grid.Row="4"
+                                                                Grid.Column="2"
+                                                                FontSize="Micro"
+                                                                Style="{StaticResource ScanValueTextStyle}"
+                                                                Text="{Binding Status}"
+                                                                TextColor="{Binding Color}" />
+                                                        </Grid>
+                                                    </Frame>
+                                                </DataTemplate>
+                                            </syncfusionListView:SfListView.ItemTemplate>
+                                        </syncfusionListView:SfListView>
+                                    </StackLayout>
+                                </Grid>
+                            </ScrollView>
+                        </syncfusionPtRefresh:SfPullToRefresh.PullableContent>
+                    </syncfusionPtRefresh:SfPullToRefresh>
+                    <ContentView
+                        AbsoluteLayout.LayoutBounds="0,0,1,1"
+                        AbsoluteLayout.LayoutFlags="All"
+                        BackgroundColor="{StaticResource LoaderBackColor}"
+                        IsVisible="{Binding IsBusy}"
+                        Opacity="0.2" />
+                    <ActivityIndicator
+                        AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+                        AbsoluteLayout.LayoutFlags="PositionProportional"
+                        IsRunning="{Binding IsBusy}"
+                        IsVisible="{Binding IsBusy}" />
+                </AbsoluteLayout>
+            </Grid>
+        </backdrop:BackdropFrontLayer>
+    </backdrop:SfBackdropPage.FrontLayer>
+
+</backdrop:SfBackdropPage>

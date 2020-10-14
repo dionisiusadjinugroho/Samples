@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="YasunliplastApp.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!--Global Styles-->
+            <Color x:Key="NavigationPrimary">#2196F3</Color>
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="BarTextColor" Value="White" />
+            </Style>
+
+            <!--  COLORS  -->
+            <Color x:Key="ArcstoneDefaultColor">#026363</Color>
+            <Color x:Key="AccentColor">#026363</Color>
+            <Color x:Key="BackgroundColor">#212C37</Color>
+            <Color x:Key="BlackColor">#000000</Color>
+            <Color x:Key="BlackTextColor">#253748</Color>
+            <Color x:Key="BlueColor">#0072C6</Color>
+            <Color x:Key="GreenColor">#368F94</Color>
+            <Color x:Key="OrangeColor">#BC4C1B</Color>
+            <Color x:Key="LightOrangeColor">#D87E56</Color>
+            <Color x:Key="WhiteColor">#FFFFFF</Color>
+            <Color x:Key="ValidationErrorColor">#FF204F</Color>
+            <Color x:Key="DarkGrayColor">#ADADAD</Color>
+            <Color x:Key="GrayColor">#F6F1E9</Color>
+            <Color x:Key="ToolbarBlueColor">#3063f5</Color>
+            <Color x:Key="GrayBackgroundColor">#e7e7e6</Color>
+            <Color x:Key="LightGrayColor">#5C5C5C</Color>
+            <Color x:Key="LoaderBackColor">#222222</Color>
+
+            <!--  FONTS  -->
+            <OnPlatform
+                x:Key="PoppinsBold"
+                x:TypeArguments="x:String"
+                Android="Poppins-Bold.ttf#Poppins"
+                iOS="Poppins-Bold" />
+
+            <OnPlatform
+                x:Key="PoppinsLight"
+                x:TypeArguments="x:String"
+                Android="Poppins-Light.ttf#Poppins"
+                iOS="Poppins-Light" />
+
+            <OnPlatform
+                x:Key="PoppinsMedium"
+                x:TypeArguments="x:String"
+                Android="Poppins-Medium.ttf#Poppins"
+                iOS="Poppins-Medium" />
+
+            <OnPlatform
+                x:Key="PoppinsRegular"
+                x:TypeArguments="x:String"
+                Android="Poppins-Regular.ttf#Poppins"
+                iOS="Poppins-Regular" />
+
+            <OnPlatform
+                x:Key="PoppinsSemiBold"
+                x:TypeArguments="x:String"
+                Android="Poppins-SemiBold.ttf#Poppins"
+                iOS="Poppins-SemiBold" />
+
+            <OnPlatform
+                x:Key="FiraSansBold"
+                x:TypeArguments="x:String"
+                Android="FiraSans-Bold.ttf#Fira Sans"
+                iOS="FiraSans-Bold" />
+
+            <OnPlatform
+                x:Key="FiraSansSemiBold"
+                x:TypeArguments="x:String"
+                Android="FiraSans-SemiBold.ttf#Fira Sans"
+                iOS="FiraSans-SemiBold" />
+
+            <OnPlatform
+                x:Key="FiraSansRegular"
+                x:TypeArguments="x:String"
+                Android="FiraSans-Regular.ttf#Fira Sans"
+                iOS="FiraSans-Regular" />
+
+            <OnPlatform
+                x:Key="LittleSize"
+                x:TypeArguments="x:Double"
+                Android="12"
+                iOS="11" />
+
+            <OnPlatform
+                x:Key="MidMediumSize"
+                x:TypeArguments="x:Double"
+                Android="14"
+                iOS="12" />
+
+            <OnPlatform
+                x:Key="MediumSize"
+                x:TypeArguments="x:Double"
+                Android="16"
+                iOS="14" />
+
+            <OnPlatform
+                x:Key="LargeSize"
+                x:TypeArguments="x:Double"
+                Android="18"
+                iOS="16" />
+
+            <OnPlatform
+                x:Key="LargerSize"
+                x:TypeArguments="x:Double"
+                Android="20"
+                iOS="18" />
+
+            <OnPlatform
+                x:Key="BigSize"
+                x:TypeArguments="x:Double"
+                Android="24"
+                iOS="20" />
+
+            <OnPlatform
+                x:Key="ExtraBigSize"
+                x:TypeArguments="x:Double"
+                Android="32"
+                iOS="24" />
+
+            <OnPlatform
+                x:Key="HugeSize"
+                x:TypeArguments="x:Double"
+                Android="48"
+                iOS="32" />
+
+            <!--  STYLES  -->
+            <Style x:Key="BaseLabelStyle" TargetType="{x:Type Label}" />
+
+            <Style BasedOn="{StaticResource BaseLabelStyle}" TargetType="{x:Type Label}" />
+
+            <Style
+                x:Key="PoppinsBoldLabelStyle"
+                BasedOn="{StaticResource BaseLabelStyle}"
+                TargetType="{x:Type Label}">
+                <Setter Property="FontFamily" Value="{StaticResource PoppinsBold}" />
+            </Style>
+
+            <Style
+                x:Key="PoppinsLightLabelStyle"
+                BasedOn="{StaticResource BaseLabelStyle}"
+                TargetType="{x:Type Label}">
+                <Setter Property="FontFamily" Value="{StaticResource PoppinsLight}" />
+            </Style>
+
+            <Style
+                x:Key="PoppinsMediumLabelStyle"
+                BasedOn="{StaticResource BaseLabelStyle}"
+                TargetType="{x:Type Label}">
+                <Setter Property="FontFamily" Value="{StaticResource PoppinsMedium}" />
+            </Style>
+
+            <Style
+                x:Key="PoppinsRegularLabelStyle"
+                BasedOn="{StaticResource BaseLabelStyle}"
+                TargetType="{x:Type Label}">
+                <Setter Property="FontFamily" Value="{StaticResource PoppinsRegular}" />
+            </Style>
+
+            <Style
+                x:Key="PoppinsSemiBoldLabelStyle"
+                BasedOn="{StaticResource BaseLabelStyle}"
+                TargetType="{x:Type Label}">
+                <Setter Property="FontFamily" Value="{StaticResource PoppinsSemiBold}" />
+            </Style>
+
+            <Style
+                x:Key="FiraSansBoldLabelStyle"
+                BasedOn="{StaticResource BaseLabelStyle}"
+                TargetType="{x:Type Label}">
+                <Setter Property="FontFamily" Value="{StaticResource FiraSansBold}" />
+            </Style>
+
+            <Style
+                x:Key="FiraSansSemiBoldLabelStyle"
+                BasedOn="{StaticResource BaseLabelStyle}"
+                TargetType="{x:Type Label}">
+                <Setter Property="FontFamily" Value="{StaticResource FiraSansSemiBold}" />
+            </Style>
+
+            <Style
+                x:Key="FiraSansRegularLabelStyle"
+                BasedOn="{StaticResource BaseLabelStyle}"
+                TargetType="{x:Type Label}">
+                <Setter Property="FontFamily" Value="{StaticResource FiraSansRegular}" />
+            </Style>
+
+            <Style x:Key="BaseButtonStyle" TargetType="{x:Type Button}">
+                <Setter Property="CornerRadius" Value="0" />
+                <Setter Property="HeightRequest" Value="55" />
+                <Setter Property="HorizontalOptions" Value="Fill" />
+                <Setter Property="FontSize" Value="{StaticResource MidMediumSize}" />
+                <Setter Property="FontFamily" Value="{StaticResource PoppinsSemiBold}" />
+            </Style>
+
+            <Style BasedOn="{StaticResource BaseButtonStyle}" TargetType="{x:Type Button}" />
+
+            <Style x:Key="BaseEntryStyle" TargetType="{x:Type Entry}">
+                <Setter Property="FontFamily" Value="{StaticResource PoppinsRegular}" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="TextColor" Value="{StaticResource BlackColor}" />
+                <Setter Property="PlaceholderColor" Value="{StaticResource DarkGrayColor}" />
+                <Setter Property="FontSize" Value="{StaticResource LargeSize}" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="Opacity" Value="0.6" />
+                <Style.Triggers>
+                    <Trigger TargetType="Entry" Property="IsFocused" Value="True">
+                        <Setter Property="Opacity" Value="1" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style BasedOn="{StaticResource BaseEntryStyle}" TargetType="{x:Type Entry}" />
+
+            <Style TargetType="{x:Type Frame}">
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="HasShadow" Value="False" />
+            </Style>
+
+        </ResourceDictionary>
+
+    </Application.Resources>
+
+</Application>
