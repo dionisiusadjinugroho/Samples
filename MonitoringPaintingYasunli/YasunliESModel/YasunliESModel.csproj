@@ -1,0 +1,638 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B2ED4416-3A93-4358-BD14-7F9A32F087DC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YasunliESModel</RootNamespace>
+    <AssemblyName>YasunliESModel</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MQTTnet, Version=3.0.11.0, Culture=neutral, PublicKeyToken=b69712f52770c0a7, processorArchitecture=MSIL">
+      <HintPath>..\packages\MQTTnet.3.0.11\lib\net461\MQTTnet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Security, Version=4.0.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Security.4.3.2\lib\net46\System.Net.Security.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.WebSockets, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.WebSockets.4.3.0\lib\net46\System.Net.WebSockets.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.WebSockets.Client, Version=4.0.1.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.WebSockets.Client.4.3.2\lib\net46\System.Net.WebSockets.Client.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Models\Mapping\MonitoringPaintingMap.cs" />
+    <Compile Include="Models\MonitoringPainting.cs" />
+    <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\AdjustStockHistory.cs" />
+    <Compile Include="Models\AlatUkur.cs" />
+    <Compile Include="Models\AlatUkurImage1.cs" />
+    <Compile Include="Models\Assembling.cs" />
+    <Compile Include="Models\BarcodeScanner.cs" />
+    <Compile Include="Models\BCDetail.cs" />
+    <Compile Include="Models\BCHeader.cs" />
+    <Compile Include="Models\BoM.cs" />
+    <Compile Include="Models\BomAllPlant.cs" />
+    <Compile Include="Models\BoMTemp.cs" />
+    <Compile Include="Models\BoMTempP1.cs" />
+    <Compile Include="Models\Mapping\PartTransactionInjectionMap.cs" />
+    <Compile Include="Models\Mapping\STOGudangReadyMap.cs" />
+    <Compile Include="Models\Mapping\TempLocationGudangMap.cs" />
+    <Compile Include="Models\PartTransactionInjection.cs" />
+    <Compile Include="Models\STOGudangReady.cs" />
+    <Compile Include="Models\TempLocationGudang.cs" />
+    <Compile Include="Models\Box.cs" />
+    <Compile Include="Models\BoxHilang.cs" />
+    <Compile Include="Models\BoxLabelRusak.cs" />
+    <Compile Include="Models\BoxLocation.cs" />
+    <Compile Include="Models\BoxPairing.cs" />
+    <Compile Include="Models\BoxRusak.cs" />
+    <Compile Include="Models\BoxType.cs" />
+    <Compile Include="Models\BQICSAlertList.cs" />
+    <Compile Include="Models\BQICSException.cs" />
+    <Compile Include="Models\BQICSMarking.cs" />
+    <Compile Include="Models\Claim.cs" />
+    <Compile Include="Models\ClaimImage.cs" />
+    <Compile Include="Models\CM.cs" />
+    <Compile Include="Models\CMM.cs" />
+    <Compile Include="Models\CMMHeader.cs" />
+    <Compile Include="Models\Currency.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\DeliveryToken.cs" />
+    <Compile Include="Models\DetailAssembling.cs" />
+    <Compile Include="Models\DetailBoM.cs" />
+    <Compile Include="Models\DetailBoMTemp.cs" />
+    <Compile Include="Models\DetailBomTempP1.cs" />
+    <Compile Include="Models\DetailHistoryBoxDelivery.cs" />
+    <Compile Include="Models\DetailHistoryBoxLeverlansir.cs" />
+    <Compile Include="Models\DetailHistoryBoxReturn.cs" />
+    <Compile Include="Models\DetailLabel.cs" />
+    <Compile Include="Models\DetailLabelLansir.cs" />
+    <Compile Include="Models\DetailOverpacking.cs" />
+    <Compile Include="Models\DetailReceiving.cs" />
+    <Compile Include="Models\DetailReturnPart.cs" />
+    <Compile Include="Models\DetailSuratJalanMaterial.cs" />
+    <Compile Include="Models\Division.cs" />
+    <Compile Include="Models\Driver.cs" />
+    <Compile Include="Models\DriverDetail.cs" />
+    <Compile Include="Models\ECN.cs" />
+    <Compile Include="Models\EmployeeList.cs" />
+    <Compile Include="Models\EngineeringAttachment.cs" />
+    <Compile Include="Models\EngineeringCase.cs" />
+    <Compile Include="Models\EngineeringJobDetail.cs" />
+    <Compile Include="Models\EngineeringJobOrder.cs" />
+    <Compile Include="Models\EngineerWorkshopJobOrder.cs" />
+    <Compile Include="Models\ErrorBoxLog1.cs" />
+    <Compile Include="Models\Gate.cs" />
+    <Compile Include="Models\GeneralJournalDetail.cs" />
+    <Compile Include="Models\GeneralJournalHeader.cs" />
+    <Compile Include="Models\HistoryBoxDelivery.cs" />
+    <Compile Include="Models\HistoryBoxHilang.cs" />
+    <Compile Include="Models\HistoryBoxLeverlansir.cs" />
+    <Compile Include="Models\HistoryBoxReturn.cs" />
+    <Compile Include="Models\HistoryBoxSusulan.cs" />
+    <Compile Include="Models\HistoryHoldQC.cs" />
+    <Compile Include="Models\HoldQC.cs" />
+    <Compile Include="Models\ICP.cs" />
+    <Compile Include="Models\Item.cs" />
+    <Compile Include="Models\ItemAttachment.cs" />
+    <Compile Include="Models\ItemDrawing.cs" />
+    <Compile Include="Models\ItemForecast.cs" />
+    <Compile Include="Models\ItemForecastHistory.cs" />
+    <Compile Include="Models\ItemIdStandard.cs" />
+    <Compile Include="Models\ItemImage.cs" />
+    <Compile Include="Models\ItemListNew.cs" />
+    <Compile Include="Models\ItemPicMaster.cs" />
+    <Compile Include="Models\ItemPlantMapping.cs" />
+    <Compile Include="Models\ItemQtyDaily.cs" />
+    <Compile Include="Models\ItemQtyDailyTemp.cs" />
+    <Compile Include="Models\ItemQuantitiesDetail.cs" />
+    <Compile Include="Models\ItemQuantity.cs" />
+    <Compile Include="Models\ItemSkillMapping.cs" />
+    <Compile Include="Models\ItemTemp.cs" />
+    <Compile Include="Models\JenisKerusakanMould.cs" />
+    <Compile Include="Models\JenisKerusakanPart.cs" />
+    <Compile Include="Models\JOAttachment.cs" />
+    <Compile Include="Models\JobOrder.cs" />
+    <Compile Include="Models\JobOrderMould.cs" />
+    <Compile Include="Models\JobWorkshopHistory.cs" />
+    <Compile Include="Models\Kanban.cs" />
+    <Compile Include="Models\KanbanDetail.cs" />
+    <Compile Include="Models\KanbanDetailTemp.cs" />
+    <Compile Include="Models\KanbanException.cs" />
+    <Compile Include="Models\KanbanFulfilment.cs" />
+    <Compile Include="Models\KanbanFulfilmentTemp.cs" />
+    <Compile Include="Models\Label.cs" />
+    <Compile Include="Models\LabelLansir.cs" />
+    <Compile Include="Models\Leverlansir.cs" />
+    <Compile Include="Models\LimitSample.cs" />
+    <Compile Include="Models\LimitSampleDetail.cs" />
+    <Compile Include="Models\LimitSampleReturn.cs" />
+    <Compile Include="Models\ListNG.cs" />
+    <Compile Include="Models\Location.cs" />
+    <Compile Include="Models\LocationQuantity.cs" />
+    <Compile Include="Models\Log.cs" />
+    <Compile Include="Models\LossTimeDetail.cs" />
+    <Compile Include="Models\LotMarking.cs" />
+    <Compile Include="Models\Machine.cs" />
+    <Compile Include="Models\MachineGroup.cs" />
+    <Compile Include="Models\Mapping\AccountMap.cs" />
+    <Compile Include="Models\Mapping\AdjustStockHistoryMap.cs" />
+    <Compile Include="Models\Mapping\AlatUkurImage1Map.cs" />
+    <Compile Include="Models\Mapping\AlatUkurMap.cs" />
+    <Compile Include="Models\Mapping\AssemblingMap.cs" />
+    <Compile Include="Models\Mapping\BarcodeScannerMap.cs" />
+    <Compile Include="Models\Mapping\BCDetailMap.cs" />
+    <Compile Include="Models\Mapping\BCHeaderMap.cs" />
+    <Compile Include="Models\Mapping\BomAllPlantMap.cs" />
+    <Compile Include="Models\Mapping\BoMMap.cs" />
+    <Compile Include="Models\Mapping\BoMTempMap.cs" />
+    <Compile Include="Models\Mapping\BoMTempP1Map.cs" />
+    <Compile Include="Models\Mapping\BoxHilangMap.cs" />
+    <Compile Include="Models\Mapping\BoxLabelRusakMap.cs" />
+    <Compile Include="Models\Mapping\BoxLocationMap.cs" />
+    <Compile Include="Models\Mapping\BoxMap.cs" />
+    <Compile Include="Models\Mapping\BoxPairingMap.cs" />
+    <Compile Include="Models\Mapping\BoxRusakMap.cs" />
+    <Compile Include="Models\Mapping\BoxTypeMap.cs" />
+    <Compile Include="Models\Mapping\BQICSAlertListMap.cs" />
+    <Compile Include="Models\Mapping\BQICSExceptionMap.cs" />
+    <Compile Include="Models\Mapping\BQICSMarkingMap.cs" />
+    <Compile Include="Models\Mapping\ClaimImageMap.cs" />
+    <Compile Include="Models\Mapping\ClaimMap.cs" />
+    <Compile Include="Models\Mapping\CMMap.cs" />
+    <Compile Include="Models\Mapping\CMMHeaderMap.cs" />
+    <Compile Include="Models\Mapping\CMMMap.cs" />
+    <Compile Include="Models\Mapping\CurrencyMap.cs" />
+    <Compile Include="Models\Mapping\CustomerMap.cs" />
+    <Compile Include="Models\Mapping\DeliveryTokenMap.cs" />
+    <Compile Include="Models\Mapping\DetailAssemblingMap.cs" />
+    <Compile Include="Models\Mapping\DetailBoMMap.cs" />
+    <Compile Include="Models\Mapping\DetailBoMTempMap.cs" />
+    <Compile Include="Models\Mapping\DetailBomTempP1Map.cs" />
+    <Compile Include="Models\Mapping\DetailHistoryBoxDeliveryMap.cs" />
+    <Compile Include="Models\Mapping\DetailHistoryBoxLeverlansirMap.cs" />
+    <Compile Include="Models\Mapping\DetailHistoryBoxReturnMap.cs" />
+    <Compile Include="Models\Mapping\DetailLabelLansirMap.cs" />
+    <Compile Include="Models\Mapping\DetailLabelMap.cs" />
+    <Compile Include="Models\Mapping\DetailOverpackingMap.cs" />
+    <Compile Include="Models\Mapping\DetailReceivingMap.cs" />
+    <Compile Include="Models\Mapping\DetailReturnPartMap.cs" />
+    <Compile Include="Models\Mapping\DetailSuratJalanMaterialMap.cs" />
+    <Compile Include="Models\Mapping\DivisionMap.cs" />
+    <Compile Include="Models\Mapping\DriverDetailMap.cs" />
+    <Compile Include="Models\Mapping\DriverMap.cs" />
+    <Compile Include="Models\Mapping\ECNMap.cs" />
+    <Compile Include="Models\Mapping\EmployeeListMap.cs" />
+    <Compile Include="Models\Mapping\EngineeringAttachmentMap.cs" />
+    <Compile Include="Models\Mapping\EngineeringCaseMap.cs" />
+    <Compile Include="Models\Mapping\EngineeringJobDetailMap.cs" />
+    <Compile Include="Models\Mapping\EngineeringJobOrderMap.cs" />
+    <Compile Include="Models\Mapping\EngineerWorkshopJobOrderMap.cs" />
+    <Compile Include="Models\Mapping\ErrorBoxLog1Map.cs" />
+    <Compile Include="Models\Mapping\GateMap.cs" />
+    <Compile Include="Models\Mapping\GeneralJournalDetailMap.cs" />
+    <Compile Include="Models\Mapping\GeneralJournalHeaderMap.cs" />
+    <Compile Include="Models\Mapping\HistoryBoxDeliveryMap.cs" />
+    <Compile Include="Models\Mapping\HistoryBoxHilangMap.cs" />
+    <Compile Include="Models\Mapping\HistoryBoxLeverlansirMap.cs" />
+    <Compile Include="Models\Mapping\HistoryBoxReturnMap.cs" />
+    <Compile Include="Models\Mapping\HistoryBoxSusulanMap.cs" />
+    <Compile Include="Models\Mapping\HistoryHoldQCMap.cs" />
+    <Compile Include="Models\Mapping\HoldQCMap.cs" />
+    <Compile Include="Models\Mapping\ICPMap.cs" />
+    <Compile Include="Models\Mapping\ItemAttachmentMap.cs" />
+    <Compile Include="Models\Mapping\ItemDrawingMap.cs" />
+    <Compile Include="Models\Mapping\ItemForecastHistoryMap.cs" />
+    <Compile Include="Models\Mapping\ItemForecastMap.cs" />
+    <Compile Include="Models\Mapping\ItemIdStandardMap.cs" />
+    <Compile Include="Models\Mapping\ItemImageMap.cs" />
+    <Compile Include="Models\Mapping\ItemListNewMap.cs" />
+    <Compile Include="Models\Mapping\ItemMap.cs" />
+    <Compile Include="Models\Mapping\ItemPicMasterMap.cs" />
+    <Compile Include="Models\Mapping\ItemPlantMappingMap.cs" />
+    <Compile Include="Models\Mapping\ItemQtyDailyMap.cs" />
+    <Compile Include="Models\Mapping\ItemQtyDailyTempMap.cs" />
+    <Compile Include="Models\Mapping\ItemQuantitiesDetailMap.cs" />
+    <Compile Include="Models\Mapping\ItemQuantityMap.cs" />
+    <Compile Include="Models\Mapping\ItemSkillMappingMap.cs" />
+    <Compile Include="Models\Mapping\ItemTempMap.cs" />
+    <Compile Include="Models\Mapping\JenisKerusakanMouldMap.cs" />
+    <Compile Include="Models\Mapping\JenisKerusakanPartMap.cs" />
+    <Compile Include="Models\Mapping\JOAttachmentMap.cs" />
+    <Compile Include="Models\Mapping\JobOrderMap.cs" />
+    <Compile Include="Models\Mapping\JobOrderMouldMap.cs" />
+    <Compile Include="Models\Mapping\JobWorkshopHistoryMap.cs" />
+    <Compile Include="Models\Mapping\KanbanDetailMap.cs" />
+    <Compile Include="Models\Mapping\KanbanDetailTempMap.cs" />
+    <Compile Include="Models\Mapping\KanbanExceptionMap.cs" />
+    <Compile Include="Models\Mapping\KanbanFulfilmentMap.cs" />
+    <Compile Include="Models\Mapping\KanbanFulfilmentTempMap.cs" />
+    <Compile Include="Models\Mapping\KanbanMap.cs" />
+    <Compile Include="Models\Mapping\LabelLansirMap.cs" />
+    <Compile Include="Models\Mapping\LabelMap.cs" />
+    <Compile Include="Models\Mapping\LeverlansirMap.cs" />
+    <Compile Include="Models\Mapping\LimitSampleDetailMap.cs" />
+    <Compile Include="Models\Mapping\LimitSampleMap.cs" />
+    <Compile Include="Models\Mapping\LimitSampleReturnMap.cs" />
+    <Compile Include="Models\Mapping\ListNGMap.cs" />
+    <Compile Include="Models\Mapping\LocationMap.cs" />
+    <Compile Include="Models\Mapping\LocationQuantityMap.cs" />
+    <Compile Include="Models\Mapping\LogMap.cs" />
+    <Compile Include="Models\Mapping\LossTimeDetailMap.cs" />
+    <Compile Include="Models\Mapping\LotMarkingMap.cs" />
+    <Compile Include="Models\Mapping\MachineGroupMap.cs" />
+    <Compile Include="Models\Mapping\MachineMap.cs" />
+    <Compile Include="Models\Mapping\MasterLogMap.cs" />
+    <Compile Include="Models\Mapping\MasterRejectMap.cs" />
+    <Compile Include="Models\Mapping\MaterialAdjustmentDetailMap.cs" />
+    <Compile Include="Models\Mapping\MaterialAdjustmentMap.cs" />
+    <Compile Include="Models\Mapping\MaterialItemQuantityMap.cs" />
+    <Compile Include="Models\Mapping\MaterialOutDetailMap.cs" />
+    <Compile Include="Models\Mapping\MaterialOutMap.cs" />
+    <Compile Include="Models\Mapping\MaterialPalletMap.cs" />
+    <Compile Include="Models\Mapping\MaterialReceivingDetailMap.cs" />
+    <Compile Include="Models\Mapping\MaterialReceivingMap.cs" />
+    <Compile Include="Models\Mapping\MaterialReturn1Map.cs" />
+    <Compile Include="Models\Mapping\MaterialReturnDetail1Map.cs" />
+    <Compile Include="Models\Mapping\MaterialToRequestOrderMap.cs" />
+    <Compile Include="Models\Mapping\MixingDetailMap.cs" />
+    <Compile Include="Models\Mapping\MixingHeaderMap.cs" />
+    <Compile Include="Models\Mapping\MixingMachineMap.cs" />
+    <Compile Include="Models\Mapping\MixingToRequestOrderMap.cs" />
+    <Compile Include="Models\Mapping\MMDiff2018Map.cs" />
+    <Compile Include="Models\Mapping\MobilMap.cs" />
+    <Compile Include="Models\Mapping\MouldComponentDetailMap.cs" />
+    <Compile Include="Models\Mapping\MouldHistoryMap.cs" />
+    <Compile Include="Models\Mapping\MouldMaintenance2018Map.cs" />
+    <Compile Include="Models\Mapping\MouldMap.cs" />
+    <Compile Include="Models\Mapping\MouldRepairCostMap.cs" />
+    <Compile Include="Models\Mapping\MouldRepairDetailMap.cs" />
+    <Compile Include="Models\Mapping\MouldRepairPriceMap.cs" />
+    <Compile Include="Models\Mapping\MouldSparepart1Map.cs" />
+    <Compile Include="Models\Mapping\MouldSparepartCostMap.cs" />
+    <Compile Include="Models\Mapping\MouldSparepartMap.cs" />
+    <Compile Include="Models\Mapping\MouldTransactionDetailMap.cs" />
+    <Compile Include="Models\Mapping\MouldTransactionHeaderMap.cs" />
+    <Compile Include="Models\Mapping\MST_RAWMap.cs" />
+    <Compile Include="Models\Mapping\NGBoxMap.cs" />
+    <Compile Include="Models\Mapping\NumberingFormatMap.cs" />
+    <Compile Include="Models\Mapping\OperatorAbsentMap.cs" />
+    <Compile Include="Models\Mapping\OverpackingMap.cs" />
+    <Compile Include="Models\Mapping\PackageChangedDetailMap.cs" />
+    <Compile Include="Models\Mapping\PackageChangedMap.cs" />
+    <Compile Include="Models\Mapping\PackageDetailMap.cs" />
+    <Compile Include="Models\Mapping\PackageMap.cs" />
+    <Compile Include="Models\Mapping\PartLabelChangedMap.cs" />
+    <Compile Include="Models\Mapping\PartTransactionLansirMap.cs" />
+    <Compile Include="Models\Mapping\PartTransactionMap.cs" />
+    <Compile Include="Models\Mapping\PaymentTermMap.cs" />
+    <Compile Include="Models\Mapping\PickingListDetailMap.cs" />
+    <Compile Include="Models\Mapping\PickingListHeaderMap.cs" />
+    <Compile Include="Models\Mapping\PlantMap.cs" />
+    <Compile Include="Models\Mapping\ProductionChecklistLTDetailMap.cs" />
+    <Compile Include="Models\Mapping\ProductionCheckListMap.cs" />
+    <Compile Include="Models\Mapping\ProductionCheckListNGDetailMap.cs" />
+    <Compile Include="Models\Mapping\PSIDetailMap.cs" />
+    <Compile Include="Models\Mapping\PSIMap.cs" />
+    <Compile Include="Models\Mapping\PurchaseOrderDetailMap.cs" />
+    <Compile Include="Models\Mapping\PurchaseOrderMap.cs" />
+    <Compile Include="Models\Mapping\PurchaseOrderSubconDetailMap.cs" />
+    <Compile Include="Models\Mapping\PurchaseOrderSubconMap.cs" />
+    <Compile Include="Models\Mapping\PurchaseReturnDetailMap.cs" />
+    <Compile Include="Models\Mapping\PurchaseReturnMap.cs" />
+    <Compile Include="Models\Mapping\QtyHoldDailyMap.cs" />
+    <Compile Include="Models\Mapping\QueueGateMap.cs" />
+    <Compile Include="Models\Mapping\ReceivingMap.cs" />
+    <Compile Include="Models\Mapping\SPPActivityMap.cs" />
+    <Compile Include="Models\Mapping\UserAccountMap.cs" />
+    <Compile Include="Models\Mapping\RecordRFIDMap.cs" />
+    <Compile Include="Models\Mapping\RecycleDetailMap.cs" />
+    <Compile Include="Models\Mapping\RecycleMap.cs" />
+    <Compile Include="Models\Mapping\RecyclingLabelMap.cs" />
+    <Compile Include="Models\Mapping\RejectImageMap.cs" />
+    <Compile Include="Models\Mapping\RentalMap.cs" />
+    <Compile Include="Models\Mapping\ReprintHistoryMap.cs" />
+    <Compile Include="Models\Mapping\RePrintSuratJalanHistoryMap.cs" />
+    <Compile Include="Models\Mapping\RequestOrderDetailMap.cs" />
+    <Compile Include="Models\Mapping\RequestOrderMap.cs" />
+    <Compile Include="Models\Mapping\ResponseKanbanMap.cs" />
+    <Compile Include="Models\Mapping\ReturnPartMap.cs" />
+    <Compile Include="Models\Mapping\ReworkDetailMap.cs" />
+    <Compile Include="Models\Mapping\ReworkMap.cs" />
+    <Compile Include="Models\Mapping\RohMap.cs" />
+    <Compile Include="Models\Mapping\SackMap.cs" />
+    <Compile Include="Models\Mapping\SacksDetailMap.cs" />
+    <Compile Include="Models\Mapping\SalesReturnDetailMap.cs" />
+    <Compile Include="Models\Mapping\SalesReturnMap.cs" />
+    <Compile Include="Models\Mapping\SamplingCMMDetailMap.cs" />
+    <Compile Include="Models\Mapping\SamplingCMMHeaderMap.cs" />
+    <Compile Include="Models\Mapping\SamplingDetailMap.cs" />
+    <Compile Include="Models\Mapping\SamplingHeaderMap.cs" />
+    <Compile Include="Models\Mapping\SamplingMap.cs" />
+    <Compile Include="Models\Mapping\SamplingSizeNodeMap.cs" />
+    <Compile Include="Models\Mapping\ScanAlertMap.cs" />
+    <Compile Include="Models\Mapping\ScanAlertTempMap.cs" />
+    <Compile Include="Models\Mapping\ScanGateMap.cs" />
+    <Compile Include="Models\Mapping\SellingPriceMap.cs" />
+    <Compile Include="Models\Mapping\SingleSamplingMap.cs" />
+    <Compile Include="Models\Mapping\Sparepart2ndProcessMap.cs" />
+    <Compile Include="Models\Mapping\SPPMap.cs" />
+    <Compile Include="Models\Mapping\SPQMap.cs" />
+    <Compile Include="Models\Mapping\StockGudangHarianMap.cs" />
+    <Compile Include="Models\Mapping\StockOpnameMap.cs" />
+    <Compile Include="Models\Mapping\StockUploadMap.cs" />
+    <Compile Include="Models\Mapping\STOGDM2019Map.cs" />
+    <Compile Include="Models\Mapping\SuratJalanDeliveryMap.cs" />
+    <Compile Include="Models\Mapping\SuratJalanMaterialMap.cs" />
+    <Compile Include="Models\Mapping\TrainingHeaderMap.cs" />
+    <Compile Include="Models\Mapping\TrainingMap.cs" />
+    <Compile Include="Models\Mapping\TrainingModuleMap.cs" />
+    <Compile Include="Models\Mapping\TransactionScrapDetailMap.cs" />
+    <Compile Include="Models\Mapping\TransactionScrapMap.cs" />
+    <Compile Include="Models\Mapping\TransitMap.cs" />
+    <Compile Include="Models\Mapping\TroubleshootingMap.cs" />
+    <Compile Include="Models\Mapping\UomConversionMap.cs" />
+    <Compile Include="Models\Mapping\UoMMap.cs" />
+    <Compile Include="Models\Mapping\UserMap.cs" />
+    <Compile Include="Models\Mapping\VendorMap.cs" />
+    <Compile Include="Models\Mapping\ViewAbsensiOperator1Map.cs" />
+    <Compile Include="Models\Mapping\ViewBQICSAlertListMap.cs" />
+    <Compile Include="Models\Mapping\ViewDataBoMMap.cs" />
+    <Compile Include="Models\Mapping\ViewDataDetailBoMMap.cs" />
+    <Compile Include="Models\Mapping\ViewEmployeeList2Map.cs" />
+    <Compile Include="Models\Mapping\ViewEmployeeListMap.cs" />
+    <Compile Include="Models\Mapping\ViewItemListMap.cs" />
+    <Compile Include="Models\Mapping\ViewItemListNewMap.cs" />
+    <Compile Include="Models\Mapping\ViewItemSTOMap.cs" />
+    <Compile Include="Models\Mapping\ViewJOAssyItemListMap.cs" />
+    <Compile Include="Models\Mapping\ViewKanbanRemain2Map.cs" />
+    <Compile Include="Models\Mapping\ViewKanbanRemainMap.cs" />
+    <Compile Include="Models\Mapping\ViewLemburPerDateTotalMap.cs" />
+    <Compile Include="Models\Mapping\ViewMouldRepairCostingMap.cs" />
+    <Compile Include="Models\Mapping\ViewMouldSparepartCostMap.cs" />
+    <Compile Include="Models\Mapping\ViewMutasiGDMDesemberMap.cs" />
+    <Compile Include="Models\Mapping\ViewMutasiGDMJanuariMap.cs" />
+    <Compile Include="Models\Mapping\ViewOperatorToMachineMap.cs" />
+    <Compile Include="Models\Mapping\ViewPORemainAccountingMap.cs" />
+    <Compile Include="Models\Mapping\ViewReworkOutMap.cs" />
+    <Compile Include="Models\Mapping\ViewScanOutAlertListMap.cs" />
+    <Compile Include="Models\Mapping\ViewSkillMappingSPPMap.cs" />
+    <Compile Include="Models\Mapping\ViewStockDaysByDispatchMap.cs" />
+    <Compile Include="Models\Mapping\ViewVoidedMaterialMap.cs" />
+    <Compile Include="Models\Mapping\ViewWarehouseOutDetailMap.cs" />
+    <Compile Include="Models\Mapping\WorkShiftMap.cs" />
+    <Compile Include="Models\MasterLog.cs" />
+    <Compile Include="Models\MasterReject.cs" />
+    <Compile Include="Models\MaterialAdjustment.cs" />
+    <Compile Include="Models\MaterialAdjustmentDetail.cs" />
+    <Compile Include="Models\MaterialItemQuantity.cs" />
+    <Compile Include="Models\MaterialOut.cs" />
+    <Compile Include="Models\MaterialOutDetail.cs" />
+    <Compile Include="Models\MaterialPallet.cs" />
+    <Compile Include="Models\MaterialReceiving.cs" />
+    <Compile Include="Models\MaterialReceivingDetail.cs" />
+    <Compile Include="Models\MaterialReturn1.cs" />
+    <Compile Include="Models\MaterialReturnDetail1.cs" />
+    <Compile Include="Models\MaterialToRequestOrder.cs" />
+    <Compile Include="Models\MixingDetail.cs" />
+    <Compile Include="Models\MixingHeader.cs" />
+    <Compile Include="Models\MixingMachine.cs" />
+    <Compile Include="Models\MixingToRequestOrder.cs" />
+    <Compile Include="Models\MMDiff2018.cs" />
+    <Compile Include="Models\Mobil.cs" />
+    <Compile Include="Models\Mould.cs" />
+    <Compile Include="Models\MouldComponentDetail.cs" />
+    <Compile Include="Models\MouldHistory.cs" />
+    <Compile Include="Models\MouldMaintenance2018.cs" />
+    <Compile Include="Models\MouldRepairCost.cs" />
+    <Compile Include="Models\MouldRepairDetail.cs" />
+    <Compile Include="Models\MouldRepairPrice.cs" />
+    <Compile Include="Models\MouldSparepart.cs" />
+    <Compile Include="Models\MouldSparepart1.cs" />
+    <Compile Include="Models\MouldSparepartCost.cs" />
+    <Compile Include="Models\MouldTransactionDetail.cs" />
+    <Compile Include="Models\MouldTransactionHeader.cs" />
+    <Compile Include="Models\MST_RAW.cs" />
+    <Compile Include="Models\NGBox.cs" />
+    <Compile Include="Models\NumberingFormat.cs" />
+    <Compile Include="Models\OperatorAbsent.cs" />
+    <Compile Include="Models\Overpacking.cs" />
+    <Compile Include="Models\Package.cs" />
+    <Compile Include="Models\PackageChanged.cs" />
+    <Compile Include="Models\PackageChangedDetail.cs" />
+    <Compile Include="Models\PackageDetail.cs" />
+    <Compile Include="Models\PartLabelChanged.cs" />
+    <Compile Include="Models\PartTransaction.cs" />
+    <Compile Include="Models\PartTransactionLansir.cs" />
+    <Compile Include="Models\PaymentTerm.cs" />
+    <Compile Include="Models\PickingListDetail.cs" />
+    <Compile Include="Models\PickingListHeader.cs" />
+    <Compile Include="Models\Plant.cs" />
+    <Compile Include="Models\ProductionCheckList.cs" />
+    <Compile Include="Models\ProductionChecklistLTDetail.cs" />
+    <Compile Include="Models\ProductionCheckListNGDetail.cs" />
+    <Compile Include="Models\PSI.cs" />
+    <Compile Include="Models\PSIDetail.cs" />
+    <Compile Include="Models\PurchaseOrder.cs" />
+    <Compile Include="Models\PurchaseOrderDetail.cs" />
+    <Compile Include="Models\PurchaseOrderSubcon.cs" />
+    <Compile Include="Models\PurchaseOrderSubconDetail.cs" />
+    <Compile Include="Models\PurchaseReturn.cs" />
+    <Compile Include="Models\PurchaseReturnDetail.cs" />
+    <Compile Include="Models\QtyHoldDaily.cs" />
+    <Compile Include="Models\QueueGate.cs" />
+    <Compile Include="Models\Receiving.cs" />
+    <Compile Include="Models\SPPActivity.cs" />
+    <Compile Include="Models\UserAccount.cs" />
+    <Compile Include="Models\RecordRFID.cs" />
+    <Compile Include="Models\Recycle.cs" />
+    <Compile Include="Models\RecycleDetail.cs" />
+    <Compile Include="Models\RecyclingLabel.cs" />
+    <Compile Include="Models\RejectImage.cs" />
+    <Compile Include="Models\Rental.cs" />
+    <Compile Include="Models\ReprintHistory.cs" />
+    <Compile Include="Models\RePrintSuratJalanHistory.cs" />
+    <Compile Include="Models\RequestOrder.cs" />
+    <Compile Include="Models\RequestOrderDetail.cs" />
+    <Compile Include="Models\ResponseKanban.cs" />
+    <Compile Include="Models\ReturnPart.cs" />
+    <Compile Include="Models\Rework.cs" />
+    <Compile Include="Models\ReworkDetail.cs" />
+    <Compile Include="Models\Roh.cs" />
+    <Compile Include="Models\Sack.cs" />
+    <Compile Include="Models\SacksDetail.cs" />
+    <Compile Include="Models\SalesReturn.cs" />
+    <Compile Include="Models\SalesReturnDetail.cs" />
+    <Compile Include="Models\Sampling.cs" />
+    <Compile Include="Models\SamplingCMMDetail.cs" />
+    <Compile Include="Models\SamplingCMMHeader.cs" />
+    <Compile Include="Models\SamplingDetail.cs" />
+    <Compile Include="Models\SamplingHeader.cs" />
+    <Compile Include="Models\SamplingSizeNode.cs" />
+    <Compile Include="Models\ScanAlert.cs" />
+    <Compile Include="Models\ScanAlertTemp.cs" />
+    <Compile Include="Models\ScanGate.cs" />
+    <Compile Include="Models\SellingPrice.cs" />
+    <Compile Include="Models\SingleSampling.cs" />
+    <Compile Include="Models\Sparepart2ndProcess.cs" />
+    <Compile Include="Models\SPP.cs" />
+    <Compile Include="Models\SPQ.cs" />
+    <Compile Include="Models\StockGudangHarian.cs" />
+    <Compile Include="Models\StockOpname.cs" />
+    <Compile Include="Models\StockUpload.cs" />
+    <Compile Include="Models\STOGDM2019.cs" />
+    <Compile Include="Models\SuratJalanDelivery.cs" />
+    <Compile Include="Models\SuratJalanMaterial.cs" />
+    <Compile Include="Models\Training.cs" />
+    <Compile Include="Models\TrainingHeader.cs" />
+    <Compile Include="Models\TrainingModule.cs" />
+    <Compile Include="Models\TransactionScrap.cs" />
+    <Compile Include="Models\TransactionScrapDetail.cs" />
+    <Compile Include="Models\Transit.cs" />
+    <Compile Include="Models\Troubleshooting.cs" />
+    <Compile Include="Models\UoM.cs" />
+    <Compile Include="Models\UomConversion.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Vendor.cs" />
+    <Compile Include="Models\ViewAbsensiOperator1.cs" />
+    <Compile Include="Models\ViewBQICSAlertList.cs" />
+    <Compile Include="Models\ViewDataBoM.cs" />
+    <Compile Include="Models\ViewDataDetailBoM.cs" />
+    <Compile Include="Models\ViewEmployeeList.cs" />
+    <Compile Include="Models\ViewEmployeeList2.cs" />
+    <Compile Include="Models\ViewItemList.cs" />
+    <Compile Include="Models\ViewItemListNew.cs" />
+    <Compile Include="Models\ViewItemSTO.cs" />
+    <Compile Include="Models\ViewJOAssyItemList.cs" />
+    <Compile Include="Models\ViewKanbanRemain.cs" />
+    <Compile Include="Models\ViewKanbanRemain2.cs" />
+    <Compile Include="Models\ViewLemburPerDateTotal.cs" />
+    <Compile Include="Models\ViewMouldRepairCosting.cs" />
+    <Compile Include="Models\ViewMouldSparepartCost.cs" />
+    <Compile Include="Models\ViewMutasiGDMDesember.cs" />
+    <Compile Include="Models\ViewMutasiGDMJanuari.cs" />
+    <Compile Include="Models\ViewOperatorToMachine.cs" />
+    <Compile Include="Models\ViewPORemainAccounting.cs" />
+    <Compile Include="Models\ViewReworkOut.cs" />
+    <Compile Include="Models\ViewScanOutAlertList.cs" />
+    <Compile Include="Models\ViewSkillMappingSPP.cs" />
+    <Compile Include="Models\ViewStockDaysByDispatch.cs" />
+    <Compile Include="Models\ViewVoidedMaterial.cs" />
+    <Compile Include="Models\ViewWarehouseOutDetail.cs" />
+    <Compile Include="Models\WorkShift.cs" />
+    <Compile Include="Models\YasunliESContext.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AndonMVC\AndonMVC.csproj">
+      <Project>{d9ee6623-cd40-4382-9e66-3ada238725a7}</Project>
+      <Name>AndonMVC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+  <Import Project="..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,26 @@
+﻿<Window xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MonitoringPaintingYasunli"
+        xmlns:dxdash="http://schemas.devexpress.com/winfx/2008/xaml/dashboard"
+        x:Class="MonitoringPaintingYasunli.MainWindow"
+        mc:Ignorable="d"
+        Title=""
+        Height="450"
+        Width="800"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized">
+    <dxlc:LayoutControl Padding="0">
+        <dxdash:DashboardControl x:FieldModifier="public"
+                                 x:Name="dashboardcontrol1"
+                                 MinHeight="150"
+                                 AllowPrintDashboardItems="True"
+                                 UseNeutralFilterMode="True"
+                                 DashboardSource="{x:Type local:Dashboard1}"
+                                 />
+    </dxlc:LayoutControl>
+
+
+</Window>
